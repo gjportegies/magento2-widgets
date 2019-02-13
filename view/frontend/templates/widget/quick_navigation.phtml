@@ -1,0 +1,71 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \SR\Widgets\Block\Widget\QuickNavigation $block
+ */
+?>
+<?php
+$isFullWidth = $this->getData('isFullWidth');
+
+$promoTitle = $this->getData('promoTitle');
+$promoText = $this->getData('promoText');
+
+$mainLinkLabel = $this->getData('mainLinkLabel');
+$mainLinkHref = $this->getData('mainLinkHref');
+
+$link1Label = $this->getData('link1Label');
+$link1Href = $this->getData('link1Href');
+$link2Label = $this->getData('link2Label');
+$link2Href = $this->getData('link2Href');
+$link3Label = $this->getData('link3Label');
+$link3Href = $this->getData('link3Href');
+$link4Label = $this->getData('link4Label');
+$link4Href = $this->getData('link4Href');
+$link5Label = $this->getData('link5Label');
+$link5Href = $this->getData('link5Href');
+$link6Label = $this->getData('link6Label');
+$link6Href = $this->getData('link6Href');
+?>
+
+<div class="container <?= $isFullWidth ?>">
+    <div class="homepage-quick-navigation">
+        <div class="homepage-quick-navigation__promo">
+            <?php if ($promoTitle): ?>
+                <h2 class="homepage-quick-navigation__promo-title"><?= $promoTitle ?></h2>
+            <?php endif; ?>
+            <?php if ($promoText): ?>
+                <p class="homepage-quick-navigation__promo-text"><?= $promoText ?></p>
+            <?php endif; ?>
+            <?php if ($mainLinkLabel && $mainLinkHref): ?>
+                <a href="<?= $mainLinkHref ?>" class="homepage-quick-navigation__main-link">
+                    <span><?= $mainLinkLabel ?></span>
+                </a>
+            <?php endif; ?>
+        </div>
+        <nav class="homepage-quick-navigation__nav">
+            <?php if ($link1Label && $link1Href): ?>
+                <a href="<?= $link1Href ?>" class="homepage-quick-navigation__nav-link"><?= $link1Label ?></a>
+            <?php endif; ?>
+            <?php if ($link2Label && $link2Href): ?>
+                <a href="<?= $link2Href ?>" class="homepage-quick-navigation__nav-link"><?= $link2Label ?></a>
+            <?php endif; ?>
+            <?php if ($link3Label && $link3Href): ?>
+                <a href="<?= $link3Href ?>" class="homepage-quick-navigation__nav-link"><?= $link3Label ?></a>
+            <?php endif; ?>
+            <?php if ($link4Label && $link4Href): ?>
+                <a href="<?= $link4Href ?>" class="homepage-quick-navigation__nav-link"><?= $link4Label ?></a>
+            <?php endif; ?>
+            <?php if ($link5Label && $link5Href): ?>
+                <a href="<?= $link5Href ?>" class="homepage-quick-navigation__nav-link"><?= $link5Label ?></a>
+            <?php endif; ?>
+            <?php if ($link6Label && $link6Href): ?>
+                <a href="<?= $link6Href ?>" class="homepage-quick-navigation__nav-link"><?= $link6Label ?></a>
+            <?php endif; ?>
+        </nav>
+    </div>
+</div>

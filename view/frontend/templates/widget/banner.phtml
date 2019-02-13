@@ -1,0 +1,73 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \SR\Widgets\Block\Widget\Banner $block
+ */
+?>
+<?php
+$title = $this->getData('title');
+$description = $this->getData('description');
+$imageUrlDesktop = $block->getImage($this->getData('imageUrlDesktop'));
+$imageUrlMobile = $block->getImage($this->getData('imageUrlMobile'));
+$imageAlt = $this->getData('imageAlt');
+$links = $block->getLinks();
+
+$bannerType = $this->getData('bannerType');
+
+$bannerCssClass = 'banner ' . $this->getData('bannerType') . ' ' . $this->getData('cssClass');
+$bannerCssClass .= !$block->hasContent() ? ' no-content' : '';
+$bannerContainerCssClass = $this->getData('isFullWidth') ? '' : 'container';
+?>
+
+<div class="banner-container <?= $bannerContainerCssClass ?>">
+    <?php if ($bannerType === 'image-link'): ?>
+        <a href="<?= $block->getUrl() . $links[0]['target'] ?>" class="<?= $bannerType ?>">
+            <?php if ($this->getData('imageUrlMobile')): ?>
+                <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
+                <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
+            <?php else: ?>
+                <img src="<?= $imageUrlDesktop ?>" class="banner-image" alt="<?= $imageAlt ?>">
+            <?php endif; ?>
+        </a>
+    <?php else: ?>
+        <div class="homepage-banner <?= $bannerCssClass ?>" <?= $block->getWidgetColorAsInlineStyle() ?>>
+            <?php if ($this->getData('imageUrlMobile')): ?>
+                <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
+                <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
+            <?php else: ?>
+                <img src="<?= $imageUrlDesktop ?>" class="banner-image" alt="<?= $imageAlt ?>">
+            <?php endif; ?>
+
+            <?php if ($block->hasContent()): ?>
+                <div class="banner-content">
+                    <?php if ($title): ?>
+                        <strong class="banner-title">
+                            <span><?= $title ?></span>
+                        </strong>
+                    <?php endif ?>
+
+                    <?php if ($description): ?>
+                        <p class="banner-description"><?= $description ?></p>
+                    <?php endif ?>
+
+                    <ul class="banner-links">
+                        <?php foreach ($links as $link): ?>
+                            <?php if ($link['label'] && $link['target']): ?>
+                            <li class="banner-link-container">
+                                <a href="<?= $block->getUrl() . $link['target'] ?>" class="banner-link">
+                                    <span><?= $link['label'] ?></span>
+                                </a>
+                            </li>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            <?php endif ?>
+        </div>
+    <?php endif ?>
+</div>

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \SR\Widgets\Block\Widget\InfoBlocks $block
+ */
+?>
+<?php
+$title = $block->getData('title');
+$description = $block->getData('description');
+$icon = $block->getData('icon');
+$cssClass = $block->getData('cssClass');
+?>
+
+<li class="<?= $cssClass ?>">
+    <i class="<?= $cssClass ?>-icon icon-<?= $icon ?>"></i>
+    <div class="<?= $cssClass ?>-text">
+        <?php if ($title): ?>
+            <strong class="<?= $cssClass ?>-title">
+                <span><?= __($title) ?></span>
+            </strong>
+        <?php endif; ?>
+        <?php if ($description): ?>
+            <p class="<?= $cssClass ?>-details"><?= $description ?></p>
+        <?php endif; ?>
+    </div>
+</li>

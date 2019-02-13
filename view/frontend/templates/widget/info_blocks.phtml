@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<?php
+$cssClass = $block->getData('css_class');
+$blockLabel = $block->escapeHtml(__($block->getData('label')));
+?>
+
+<div class="<?= $cssClass ?>">
+    <strong class="<?= $cssClass ?>-title">
+        <span><?= $blockLabel ?></span>
+    </strong>
+    <ul class="<?= $cssClass ?>-list">
+        <?= $block->getChildHtml() ?>
+    </ul>
+</div>

@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \SR\Widgets\Block\Widget\Banners $block
+ */
+?>
+<?php
+$banners = $block->getItems();
+$bannersAmount = $block->getItemsAmount();
+$bannersCssClass = $this->getData('cssClass');
+$bannersCssClass .= $this->getData('isFullWidth') ? '' : ' container';
+$bannersCssClass .= $this->getData('isSlider') ? ' banner-slider' : '';
+$bannersCssClass .= $block->hasPrimaryBanner() ? ' has-primary-banner' : '';
+?>
+
+<div class="banners-container <?= $bannersCssClass ?>">
+    <?php if($block->hasPrimaryBanner()): ?>
+        <div class="banners-primary-banner">
+            <a href="<?= $block->getData('primaryBannerLinkURL') ?>" class="banners-primary-banner-link" title="<?= $block->getData('primaryBannerTitle') ?>">
+                <img src="<?= $block->getImage($block->getData('primaryBannerImagePath')) ?>" class="banners-primary-banner-image" alt="<?= $block->getData('primaryBannerTitle') ?>"/>
+                <span class="banners-primary-banner-content">
+                    <strong class="banners-primary-banner-title">
+                        <?= $block->getData('primaryBannerTitle') ?>
+                    </strong>
+                    <span class="banners-primary-banner-text">
+                        <?= $block->getData('primaryBannerLinkLabel') ?>
+                    </span>
+                </span>
+            </a>
+        </div>
+    <?php endif; ?>
+    <ul class="banners banners-<?= $bannersAmount ?>-items">
+        <?php foreach ($banners as $banner): ?>
+            <li class="banners-item">
+                <?php if ($banner['image_path']): ?>
+                    <?php if ($banner['link_address']): ?>
+                        <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-image-container" title="<?= __($banner['link_label']) ?>">
+                    <?php endif; ?>
+                        <img src="<?= $block->getImage($banner['image_path']); ?>" class="banners-item-image" alt="<?= __($banner['link_label']) ?>">
+                    <?php if ($banner['link_address']): ?>
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <div class="banners-item-footer">
+                    <?php if ($banner['title']): ?>
+                        <strong class="banners-item-title"><?= __($banner['title']) ?></strong>
+                    <?php endif; ?>
+
+                    <?php if ($banner['link_label'] && $banner['link_address']): ?>
+                        <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-link" title="<?= __($banner['title']) ?>">
+                            <?= __($banner['link_label']) ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

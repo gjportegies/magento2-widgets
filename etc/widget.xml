@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="banners" class="SR\Widgets\Block\Widget\Banners" placeholder_image="SR_Widgets::images/widget_placeholders/banners.gif">
+        <label>Banners</label>
+        <description>Group of blocks with image, title and link</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <options>
+                    <option name="default" value="widget/banners.phtml" selected="true">
+                        <label>Default</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="isSlider" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Enable slider</label>
+            </parameter>
+            <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Full width widget</label>
+            </parameter>
+            <parameter name="cssClass" xsi:type="text">
+                <label>Css Class</label>
+            </parameter>
+
+            <parameter name="primaryBannerTitle" xsi:type="text">
+                <label>Primary Banner Title</label>
+            </parameter>
+            <parameter name="primaryBannerLinkLabel" xsi:type="text">
+                <label>Primary Banner Link Label</label>
+            </parameter>
+            <parameter name="primaryBannerLinkURL" xsi:type="text">
+                <label>Primary Banner Link URL</label>
+            </parameter>
+            <parameter name="primaryBannerImagePath" xsi:type="block">
+                <label>Primary Banner Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="banner1Title" xsi:type="text">
+                <label>Banner 1 Title</label>
+            </parameter>
+            <parameter name="banner1LinkLabel" xsi:type="text">
+                <label>Banner 1 Link Label</label>
+            </parameter>
+            <parameter name="banner1LinkURL" xsi:type="text">
+                <label>Banner 1 Link URL</label>
+            </parameter>
+            <parameter name="banner1ImagePath" xsi:type="block">
+                <label>Banner 1 Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="banner2Title" xsi:type="text">
+                <label>Banner 2 Title</label>
+            </parameter>
+            <parameter name="banner2LinkLabel" xsi:type="text">
+                <label>Banner 2 Link Label</label>
+            </parameter>
+            <parameter name="banner2LinkURL" xsi:type="text">
+                <label>Banner 2 Link URL</label>
+            </parameter>
+            <parameter name="banner2ImagePath" xsi:type="block">
+                <label>Banner 2 Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="banner3Title" xsi:type="text">
+                <label>Banner 3 Title</label>
+            </parameter>
+            <parameter name="banner3LinkLabel" xsi:type="text">
+                <label>Banner 3 Link Label</label>
+            </parameter>
+            <parameter name="banner3LinkURL" xsi:type="text">
+                <label>Banner 3 Link URL</label>
+            </parameter>
+            <parameter name="banner3ImagePath" xsi:type="block">
+                <label>Banner 3 Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="banner4Title" xsi:type="text">
+                <label>Banner 4 Title</label>
+            </parameter>
+            <parameter name="banner4LinkLabel" xsi:type="text">
+                <label>Banner 4 Link Label</label>
+            </parameter>
+            <parameter name="banner4LinkURL" xsi:type="text">
+                <label>Banner 4 Link URL</label>
+            </parameter>
+            <parameter name="banner4ImagePath" xsi:type="block">
+                <label>Banner 4 Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="banner5Title" xsi:type="text">
+                <label>Banner 5 Title</label>
+            </parameter>
+            <parameter name="banner5LinkLabel" xsi:type="text">
+                <label>Banner 5 Link Label</label>
+            </parameter>
+            <parameter name="banner5LinkURL" xsi:type="text">
+                <label>Banner 5 Link URL</label>
+            </parameter>
+            <parameter name="banner5ImagePath" xsi:type="block">
+                <label>Banner 5 Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="banner" class="SR\Widgets\Block\Widget\Banner" placeholder_image="SR_Widgets::images/widget_placeholders/banner.gif">
+        <label>Banner (Single)</label>
+        <description>Banner with image, title, text and links</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <options>
+                    <option name="default" value="widget/banner.phtml" selected="true">
+                        <label>Default</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Full width widget</label>
+            </parameter>
+
+            <parameter name="bannerType" xsi:type="select">
+                <label>Banner Type</label>
+                <options>
+                    <option name="type-1" value="type-1">
+                        <label>Type 1</label>
+                    </option>
+                    <option name="type-2" value="type-2">
+                        <label>Type 2</label>
+                    </option>
+                    <option name="type-3" value="type-3">
+                        <label>Type 3</label>
+                    </option>
+                    <option name="type-4" value="type-4">
+                        <label>Type 4</label>
+                    </option>
+                    <option name="type-5" value="type-5">
+                        <label>Type 5</label>
+                    </option>
+                    <option name="typeImageLink" value="image-link">
+                        <label>Image-link</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="colorHEX" xsi:type="text">
+                <label>Text color in HEX</label>
+                <description>Format like "#333333"</description>
+            </parameter>
+            <parameter name="cssClass" xsi:type="text">
+                <label>Css Class</label>
+            </parameter>
+
+            <parameter name="title" xsi:type="text">
+                <label>Banner Title</label>
+            </parameter>
+            <parameter name="description" xsi:type="text">
+                <label>Banner Description</label>
+            </parameter>
+            <parameter name="imageUrlDesktop" xsi:type="block">
+                <label>Banner Image (Desktop)</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="imageUrlMobile" xsi:type="block">
+                <label>Banner Image (Mobile)</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="imageAlt" xsi:type="text">
+                <label>Image Description (Alt)</label>
+            </parameter>
+
+            <parameter name="link1Label" xsi:type="text">
+                <label>Link 1 Label</label>
+            </parameter>
+            <parameter name="link1URL" xsi:type="text">
+                <label>Link 1 URL</label>
+                <description>or link for image if you choose "Image-link" widget type</description>
+            </parameter>
+
+            <parameter name="link2Label" xsi:type="text">
+                <label>Link 2 Label</label>
+            </parameter>
+            <parameter name="link2URL" xsi:type="text">
+                <label>Link 2 URL</label>
+            </parameter>
+
+            <parameter name="link3Label" xsi:type="text">
+                <label>Link 3 Label</label>
+            </parameter>
+            <parameter name="link3URL" xsi:type="text">
+                <label>Link 3 URL</label>
+            </parameter>
+
+            <parameter name="link4Label" xsi:type="text">
+                <label>Link 4 Label</label>
+            </parameter>
+            <parameter name="link4URL" xsi:type="text">
+                <label>Link 4 URL</label>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="info_blocks" class="SR\Widgets\Block\Widget\InfoBlocks" placeholder_image="SR_Widgets::images/widget_placeholders/info_blocks.gif">
+        <label>Info Blocks</label>
+        <description>Block includes image, title and text</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <options>
+                    <option name="default" value="widget/info_block.phtml" selected="true">
+                        <label>Default</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="icon" xsi:type="select">
+                <label>Icon</label>
+                <description>
+                    <![CDATA[
+                    Defines an icon
+                    <br/>
+                    <small>
+                        <b>Note: </b>
+                        <span>icon design depends on theme and some icons may be missing in a theme</span>
+                    </small>
+                    ]]>
+                </description>
+                <options>
+                    <option name="empty" value="null" selected="true">
+                        <label>Select Icon</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="title" xsi:type="text">
+                <label>Title</label>
+            </parameter>
+
+            <parameter name="description" xsi:type="block">
+                <label>Description</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
+
+            <parameter name="cssClass" xsi:type="text" required="true">
+                <label>Css class</label>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="quick_navigation" class="SR\Widgets\Block\Widget\QuickNavigation" placeholder_image="SR_Widgets::images/widget_placeholders/quick_navigation.gif">
+        <label>Quick Navigation</label>
+        <description>Quick Navigation with Promo Block</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <options>
+                    <option name="default" value="widget/quick_navigation.phtml" selected="true">
+                        <label>Default</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Full width widget</label>
+            </parameter>
+
+            <parameter name="promoTitle" xsi:type="text">
+                <label>Promo Title</label>
+            </parameter>
+            <parameter name="promoText" xsi:type="text">
+                <label>Promo Text</label>
+            </parameter>
+
+            <parameter name="mainLinkLabel" xsi:type="text">
+                <label>Main Link Label</label>
+            </parameter>
+            <parameter name="mainLinkURL" xsi:type="text">
+                <label>Main Link URL</label>
+            </parameter>
+
+            <parameter name="link1Label" xsi:type="text">
+                <label>Link 1 Label</label>
+            </parameter>
+            <parameter name="link1URL" xsi:type="text">
+                <label>Link 1 URL</label>
+            </parameter>
+
+            <parameter name="link2Label" xsi:type="text">
+                <label>Link 2 Label</label>
+            </parameter>
+            <parameter name="link2URL" xsi:type="text">
+                <label>Link 2 URL</label>
+            </parameter>
+
+            <parameter name="link3Label" xsi:type="text">
+                <label>Link 3 Label</label>
+            </parameter>
+            <parameter name="link3URL" xsi:type="text">
+                <label>Link 3 URL</label>
+            </parameter>
+
+            <parameter name="link4Label" xsi:type="text">
+                <label>Link 4 Label</label>
+            </parameter>
+            <parameter name="link4URL" xsi:type="text">
+                <label>Link 4 URL</label>
+            </parameter>
+
+            <parameter name="link5Label" xsi:type="text">
+                <label>Link 5 Label</label>
+            </parameter>
+            <parameter name="link5URL" xsi:type="text">
+                <label>Link 5 URL</label>
+            </parameter>
+
+            <parameter name="link6Label" xsi:type="text">
+                <label>Link 6 Label</label>
+            </parameter>
+            <parameter name="link6URL" xsi:type="text">
+                <label>Link 6 URL</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
