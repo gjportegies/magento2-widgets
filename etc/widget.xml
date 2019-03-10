@@ -27,6 +27,28 @@
             <parameter name="cssClass" xsi:type="text">
                 <label>Css Class</label>
             </parameter>
+            <parameter name="gridClasses" xsi:type="text">
+                <label>Grid Classes</label>
+                <description>
+                    <![CDATA[
+                    "xxs" > 320px
+                    <br/>
+                    "xs" > 480px
+                    <br/>
+                    "sm" > 640px
+                    <br/>
+                    "md" > 768px
+                    <br/>
+                    "lg" > 1024px
+                    <br/>
+                    "xl" > 1440px
+                    ]]>
+                </description>
+            </parameter>
+
+            <parameter name="widgetTitle" xsi:type="text">
+                <label>Widget Title</label>
+            </parameter>
 
             <parameter name="primaryBannerTitle" xsi:type="text">
                 <label>Primary Banner Title</label>
@@ -147,6 +169,26 @@
                     </data>
                 </block>
             </parameter>
+
+            <parameter name="banner6Title" xsi:type="text">
+                <label>Banner 6 Title</label>
+            </parameter>
+            <parameter name="banner6LinkLabel" xsi:type="text">
+                <label>Banner 6 Link Label</label>
+            </parameter>
+            <parameter name="banner6LinkURL" xsi:type="text">
+                <label>Banner 6 Link URL</label>
+            </parameter>
+            <parameter name="banner6ImagePath" xsi:type="block">
+                <label>Banner 6 Image</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
         </parameters>
     </widget>
 
@@ -166,6 +208,11 @@
                 <label>Full width widget</label>
             </parameter>
 
+            <!--
+            /**
+                SR-TODO: "bannerType" is deprecated. Its functionality must be replaced with "cssClass" param
+             */
+            -->
             <parameter name="bannerType" xsi:type="select">
                 <label>Banner Type</label>
                 <options>
@@ -189,12 +236,12 @@
                     </option>
                 </options>
             </parameter>
+            <parameter name="cssClass" xsi:type="text">
+                <label>Css Class</label>
+            </parameter>
             <parameter name="colorHEX" xsi:type="text">
                 <label>Text color in HEX</label>
                 <description>Format like "#333333"</description>
-            </parameter>
-            <parameter name="cssClass" xsi:type="text">
-                <label>Css Class</label>
             </parameter>
 
             <parameter name="title" xsi:type="text">

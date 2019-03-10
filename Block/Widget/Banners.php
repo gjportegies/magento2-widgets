@@ -18,7 +18,9 @@ class Banners extends AbstractWidget
         $banners = [];
 
         for ($i = 1; ; $i++) {
-            if (!$this->getData('banner' . $i . 'Title')) {
+            if (!$this->getData('banner' . $i . 'Title') &&
+                !$this->getData('banner' . $i . 'LinkLabel') &&
+                !$this->getData('banner' . $i . 'ImagePath')) {
                 break;
             }
 
@@ -38,8 +40,7 @@ class Banners extends AbstractWidget
      */
     public function hasPrimaryBanner()
     {
-        return $this->getData('primaryBannerTitle') &&
-            $this->getData('primaryBannerLinkLabel') &&
+        return $this->getData('primaryBannerLinkLabel') &&
             $this->getData('primaryBannerLinkURL') &&
             $this->getData('primaryBannerImagePath');
     }

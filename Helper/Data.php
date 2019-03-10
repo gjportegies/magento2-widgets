@@ -46,7 +46,7 @@ class Data extends AbstractHelper
         /**
          * @var \Magento\Store\Model\Store $store
          */
-        $store = (string)$this->_storeManager->getStore();
+        $store = $this->_storeManager->getStore();
         return $store->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
     }
 

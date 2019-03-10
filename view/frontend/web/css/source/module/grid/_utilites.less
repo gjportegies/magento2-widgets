@@ -1,0 +1,35 @@
+// /**
+//  * Copyright © 2019 Studio Raz. All rights reserved.
+//  * See LICENSE.txt for license details.
+//  */
+
+// Generates base column classes (without screen size prefix)
+.make-grid-columns-base(@column-number: 1) when (@column-number =< @grid-columns-amount) {
+    .col-@{column-number} {
+        width: (100% / @grid-columns-amount * @column-number);
+    }
+
+    .make-grid-columns-base((@column-number + 1));
+}
+
+// Generates responsive column classes (with screen size prefix)
+.grid-columns-responsive(@breakpoint-name; @column-number: 1) when (@column-number =< @grid-columns-amount) {
+    .col-@{breakpoint-name}-@{column-number} {
+        width: (100% / @grid-columns-amount * @column-number);
+    }
+
+    .grid-columns-responsive(@breakpoint-name, (@column-number + 1));
+}
+
+// Generates media queries with columns inside according to screen breakpoints
+.make-grid-columns-responsive(@current-breakpoint: length(@grid-breakpoints)) when (@current-breakpoint > 0) {
+    .make-grid-columns-responsive(@current-breakpoint - 1);
+
+    @breakpoint: extract(@grid-breakpoints, @current-breakpoint);
+    @breakpoint-name: extract(@breakpoint, 1);
+    @breakpoint-value: extract(@breakpoint, 2);
+
+    @media (min-width: @breakpoint-value) {
+        .grid-columns-responsive(@breakpoint-name);
+    }
+}

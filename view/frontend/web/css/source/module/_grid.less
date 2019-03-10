@@ -1,0 +1,25 @@
+// /**
+//  * Copyright © 2019 Studio Raz. All rights reserved.
+//  * See LICENSE.txt for license details.
+//  */
+
+& when (@media-common = true) {
+    @import 'grid/_variables.less';
+    @import 'grid/_utilites.less';
+
+    .@{grid-prefix}row {
+        .lib-clearfix();
+        margin-left: -@grid-gutter;
+        margin-right: -@grid-gutter;
+    }
+
+    [class*="col-"] {
+        float: left;
+        padding-left: @grid-gutter;
+        padding-right: @grid-gutter;
+        box-sizing: border-box;
+    }
+
+    .make-grid-columns-base();
+    .make-grid-columns-responsive();
+}
