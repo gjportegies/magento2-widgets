@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+use SR\Widgets\Block\Widget\HomepageVideo;
+
+/**
+ * @var HomepageVideo $block
+ */
+?>
+<?php
+$videoUrl = $block->getData('videoFile') ? $block->getMedia($block->getData('videoFile')) : $block->getData('videoUrl');
+?>
+
+<div class="homepage-video-container full-width">
+    <video class="homepage-video" preload="auto" loop autoplay muted playsinline>
+        <source src="<?= $videoUrl ?>">
+    </video>
+</div>

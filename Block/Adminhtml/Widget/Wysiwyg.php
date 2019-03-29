@@ -6,34 +6,40 @@
 
 namespace SR\Widgets\Block\Adminhtml\Widget;
 
+use Magento\Backend\Block\Template\Context;
+use Magento\Backend\Block\Widget\Form\Element;
+use Magento\Cms\Model\Wysiwyg\Config;
+use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\Data\Form\Element\Factory;
+
 /**
  * Class Editor
  * @package SR\Widgets\Block\Widget
  */
-class Wysiwyg extends \Magento\Backend\Block\Widget\Form\Element
+class Wysiwyg extends Element
 {
 
     /**
-     * @var \Magento\Cms\Model\Wysiwyg\Config
+     * @var Config
      */
     protected $_wysiwygConfig;
 
     /**
-     * @var \Magento\Framework\Data\Form\Element\Factory
+     * @var Factory
      */
     protected $_factoryElement;
 
     /**
      * Editor constructor.
-     * @param \Magento\Backend\Block\Template\Context $context
-     * @param \Magento\Framework\Data\Form\Element\Factory $factoryElement
-     * @param \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig
+     * @param Context $context
+     * @param Factory $factoryElement
+     * @param Config $wysiwygConfig
      * @param array $data
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        \Magento\Framework\Data\Form\Element\Factory $factoryElement,
-        \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,
+        Context $context,
+        Factory $factoryElement,
+        Config $wysiwygConfig,
         $data = []
     ) {
         $this->_factoryElement = $factoryElement;
@@ -44,10 +50,10 @@ class Wysiwyg extends \Magento\Backend\Block\Widget\Form\Element
     /**
      * Prepare chooser element HTML
      *
-     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element Form Element
-     * @return \Magento\Framework\Data\Form\Element\AbstractElement
+     * @param AbstractElement $element Form Element
+     * @return AbstractElement
      */
-    public function prepareElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element) {
+    public function prepareElementHtml(AbstractElement $element) {
         $editor = $this->_factoryElement->create('editor', ['data' => $element->getData()])
             ->setData('label', '')
             ->setForm($element->getForm())

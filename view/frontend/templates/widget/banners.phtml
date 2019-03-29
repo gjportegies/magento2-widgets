@@ -5,85 +5,94 @@
  */
 ?>
 <?php
+use SR\Widgets\Block\Widget\Banners;
+
 /**
- * @var \SR\Widgets\Block\Widget\Banners $block
+ * @var Banners $block
  */
 ?>
 <?php
+$widgetId = 'widget-' . uniqId();
+$widgetCssClass = $widgetId;
+$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width' : '';
 $widgetTitle = $block->getData('widgetTitle');
+$widgetBackgroundImage = $block->getData('widgetBackgroundImage');
 
 $primaryBannerTitle = $block->getData('primaryBannerTitle');
 $primaryBannerLinkLabel = $block->getData('primaryBannerLinkLabel');
 $primaryBannerLinkURL = $block->getData('primaryBannerLinkURL');
-$primaryBannerImagePath = $block->getImage($block->getData('primaryBannerImagePath'));
+$primaryBannerImagePath = $block->getMedia($block->getData('primaryBannerImagePath'));
 
 $banners = $block->getItems();
 $bannersAmount = $block->getItemsAmount();
 $bannersGridRowClasses = 'widget-row';
 $bannersGridColumnClasses = $this->getData('gridClasses');
 $bannersCssClass = $this->getData('cssClass');
-$bannersCssClass .= $this->getData('isFullWidth') ? '' : ' container';
-$bannersCssClass .= $this->getData('isSlider') ? ' banner-slider' : '';
-$bannersCssClass .= $block->hasPrimaryBanner() ? ' has-primary-banner' : '';
+$bannersCssClass .= $this->getData('isSlider') ? 'banner-slider ' : '';
+$bannersCssClass .= $block->hasPrimaryBanner() ? 'has-primary-banner ' : '';
 ?>
 
-<div class="banners-container <?= $bannersCssClass ?>">
-    <?php if ($widgetTitle): ?>
-        <strong class="banners-widget-title">
-            <span><?= $widgetTitle ?></span>
-        </strong>
-    <?php endif; ?>
-    <?php if ($block->hasPrimaryBanner()): ?>
-        <div class="banners-primary-banner">
-            <a href="<?= $primaryBannerLinkURL ?>" class="banners-primary-banner-link" title="<?= $primaryBannerTitle ?>">
-                <img src="<?= $primaryBannerImagePath ?>" class="banners-primary-banner-image" alt="<?= $primaryBannerTitle ?>"/>
-                <span class="banners-primary-banner-content">
+<?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
+
+<div class="<?= $widgetCssClass ?>">
+    <div class="banners-container container <?= $bannersCssClass ?>">
+        <?php if ($widgetTitle): ?>
+            <strong class="banners-widget-title">
+                <span><?= $widgetTitle ?></span>
+            </strong>
+        <?php endif; ?>
+        <?php if ($block->hasPrimaryBanner()): ?>
+            <div class="banners-primary-banner">
+                <a href="<?= $primaryBannerLinkURL ?>" class="banners-primary-banner-link" title="<?= $primaryBannerTitle ?>">
+                    <img src="<?= $primaryBannerImagePath ?>" class="banners-primary-banner-image" alt="<?= $primaryBannerTitle ?>"/>
+                    <span class="banners-primary-banner-content">
                     <?php if ($primaryBannerTitle): ?>
                         <strong class="banners-primary-banner-title">
                             <?= $primaryBannerTitle ?>
                         </strong>
                     <?php endif; ?>
-                    <?php if ($primaryBannerLinkLabel): ?>
-                        <span class="banners-primary-banner-link-label">
+                        <?php if ($primaryBannerLinkLabel): ?>
+                            <span class="banners-primary-banner-link-label">
                             <?= $primaryBannerLinkLabel ?>
                         </span>
-                    <?php endif; ?>
+                        <?php endif; ?>
                 </span>
-            </a>
-        </div>
-    <?php endif; ?>
-    <ul class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridRowClasses ?>">
-        <?php foreach ($banners as $banner): ?>
-            <li class="<?= $bannersGridColumnClasses ?>">
-                <div class="banners-item">
-                    <?php if ($banner['image_path']): ?>
-                        <?php if ($banner['link_address']): ?>
-                            <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-image-container"
-                            title="<?= $banner['link_label'] ?>">
-                        <?php endif; ?>
-                        <img src="<?= $block->getImage($banner['image_path']); ?>" class="banners-item-image"
-                             alt="<?= $banner['link_label'] ?>">
-                        <?php if ($banner['link_address']): ?>
-                            </a>
-                        <?php endif; ?>
-                    <?php endif; ?>
-
-                    <div class="banners-item-panel">
-                        <?php if ($banner['title']): ?>
-                            <strong class="banners-item-title">
-                                <span><?= $banner['title'] ?></span>
-                            </strong>
+                </a>
+            </div>
+        <?php endif; ?>
+        <ul class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridRowClasses ?>">
+            <?php foreach ($banners as $banner): ?>
+                <li class="<?= $bannersGridColumnClasses ?>">
+                    <div class="banners-item">
+                        <?php if ($banner['image_path']): ?>
+                            <?php if ($banner['link_address']): ?>
+                                <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-image-container"
+                                title="<?= $banner['link_label'] ?>">
+                            <?php endif; ?>
+                            <img src="<?= $block->getMedia($banner['image_path']); ?>" class="banners-item-image"
+                                 alt="<?= $banner['link_label'] ?>">
+                            <?php if ($banner['link_address']): ?>
+                                </a>
+                            <?php endif; ?>
                         <?php endif; ?>
 
-                        <?php if ($banner['link_label'] && $banner['link_address']): ?>
-                            <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-link"
-                               title="<?= $banner['title'] ?>">
-                                <?= $banner['link_label'] ?>
-                            </a>
-                        <?php endif; ?>
+                        <div class="banners-item-panel">
+                            <?php if ($banner['title']): ?>
+                                <strong class="banners-item-title">
+                                    <span><?= $banner['title'] ?></span>
+                                </strong>
+                            <?php endif; ?>
+
+                            <?php if ($banner['link_label'] && $banner['link_address']): ?>
+                                <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-link"
+                                   title="<?= $banner['title'] ?>">
+                                    <?= $banner['link_label'] ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                </div>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 </div>

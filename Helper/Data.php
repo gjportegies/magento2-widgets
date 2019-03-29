@@ -7,6 +7,8 @@
 namespace SR\Widgets\Helper;
 
 use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\UrlInterface;
@@ -39,12 +41,12 @@ class Data extends AbstractHelper
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException If given store doesn't exist.
+     * @throws NoSuchEntityException If given store doesn't exist.
      */
     public function getMediaBaseDirectory()
     {
         /**
-         * @var \Magento\Store\Model\Store $store
+         * @var Store $store
          */
         $store = $this->_storeManager->getStore();
         return $store->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);

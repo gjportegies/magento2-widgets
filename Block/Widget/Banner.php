@@ -59,16 +59,4 @@ class Banner extends AbstractWidget
             ]
         ];
     }
-
-    /**
-     * Return html attr "style=color:<widget "color">"
-     *
-     * @return string
-     */
-    public function getWidgetColorAsInlineStyle()
-    {
-        $color = $this->getData('colorHEX');
-
-        return $color ? 'style="color: ' . $color . ';"' : '';
-    }
 }

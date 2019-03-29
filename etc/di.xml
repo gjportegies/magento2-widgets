@@ -6,6 +6,11 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Staempfli\WidgetExtraFields\Block\Adminhtml\Renderer\ImageFieldRenderer"
+                type="SR\Widgets\Block\Adminhtml\Renderer\ImageFieldRenderer"/>
+    <preference for="Staempfli\WidgetExtraFields\Block\Adminhtml\Renderer\VideoFieldRenderer"
+                type="SR\Widgets\Block\Adminhtml\Renderer\VideoFieldRenderer"/>
+
     <type name="Magento\Widget\Model\Widget">
         <plugin name="SR_WidgetCore::Widget_Model_Widget" type="SR\Widgets\Plugin\Model\WidgetPlugin"/>
     </type>

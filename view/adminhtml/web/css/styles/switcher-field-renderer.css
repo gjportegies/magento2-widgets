@@ -1,0 +1,45 @@
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+.switcher-inputs {
+    display: flex;
+    overflow: hidden;
+}
+
+.switcher-inputs input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switcher-inputs label {
+    background-color: #e3e3e3;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 1px solid #adadad;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.075);
+}
+
+.switcher-inputs label:hover {
+    cursor: pointer;
+}
+
+.switcher-inputs input:not(:checked) + label:hover {
+    cursor: pointer;
+    background-color: #e9e9e9;
+}
+
+.switcher-inputs input:checked + label {
+    background-color: #a5dc86;
+    box-shadow: none;
+    cursor: default;
+}

@@ -5,6 +5,7 @@
 
 // Generates base column classes (without screen size prefix)
 .make-grid-columns-base(@column-number: 1) when (@column-number =< @grid-columns-amount) {
+    [class*="page-layout"] .block.widget .products-grid .product-item.col-@{column-number},
     .col-@{column-number} {
         width: (100% / @grid-columns-amount * @column-number);
     }
@@ -14,6 +15,7 @@
 
 // Generates responsive column classes (with screen size prefix)
 .grid-columns-responsive(@breakpoint-name; @column-number: 1) when (@column-number =< @grid-columns-amount) {
+    [class*="page-layout"] .block.widget .products-grid .product-item.col-@{breakpoint-name}-@{column-number},
     .col-@{breakpoint-name}-@{column-number} {
         width: (100% / @grid-columns-amount * @column-number);
     }

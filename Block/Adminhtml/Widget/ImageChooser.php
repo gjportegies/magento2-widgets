@@ -6,11 +6,19 @@
 
 namespace SR\Widgets\Block\Adminhtml\Widget;
 
+use Magento\Backend\Block\Widget\Button;
 use Magento\Framework\Data\Form\Element\AbstractElement as Element;
 use Magento\Backend\Block\Template\Context as TemplateContext;
 use Magento\Framework\Data\Form\Element\Factory as FormElementFactory;
 use Magento\Backend\Block\Template;
+use Magento\Framework\Data\Form\Element\Text;
+use Magento\Framework\Exception\LocalizedException;
 
+/**
+ * @deprecated
+ *
+ * Use Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField instead
+ */
 class ImageChooser extends Template
 {
     /**
@@ -36,14 +44,14 @@ class ImageChooser extends Template
     /**
      * @param Element $element
      * @return Element
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function prepareElementHtml(Element $element)
     {
         $config = $this->_getData('config');
         $sourceUrl = $this->getUrl('cms/wysiwyg_images/index', ['target_element_id' => $element->getId(), 'type' => 'file']);
 
-        /** @var \Magento\Backend\Block\Widget\Button $chooser */
+        /** @var Button $chooser */
         $chooser = $this->getLayout()->createBlock('Magento\Backend\Block\Widget\Button');
         $chooser->setData('type', 'button')
             ->setData('class', 'btn-chooser')
@@ -51,7 +59,7 @@ class ImageChooser extends Template
             ->setData('onclick', 'MediabrowserUtility.openDialog(\'' . $sourceUrl . '\')')
             ->setData('disabled', $element->getReadonly());
 
-        /** @var \Magento\Framework\Data\Form\Element\Text $input */
+        /** @var Text $input */
         $input = $this->elementFactory->create('text', ['data' => $element->getData()]);
         $input->setId($element->getId());
         $input->setForm($element->getForm());

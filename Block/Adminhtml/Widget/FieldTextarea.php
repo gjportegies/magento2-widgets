@@ -46,7 +46,19 @@ Class FieldTextarea extends Template
             $input->addClass('required-entry');
         }
 
-        $element->setData('after_element_html', $input->getElementHtml());
+        $styles = '
+            <style>
+                .field-' . $element->getId() . ' .control-value {
+                    display: none;                    
+                }
+                
+                .field-' . $element->getId() . ' .input-textarea {
+                    min-height: 160px;                    
+                }
+            </style>
+        ';
+
+        $element->setData('after_element_html', $input->getElementHtml() . $styles);
 
         return $element;
     }

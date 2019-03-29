@@ -5,8 +5,23 @@
 
 & when (@media-common = true) {
     .banner {
+        &-title {
+            display: block;
+        }
+
         &-links {
             .lib-list-reset-styles();
+        }
+
+        &-link-container {
+            margin-bottom: 0;
+        }
+
+        &-link {
+            &,
+            &:visited {
+                color: inherit;
+            }
         }
     }
 }

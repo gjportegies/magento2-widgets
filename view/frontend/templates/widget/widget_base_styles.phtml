@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+use SR\Widgets\Block\Widget\AbstractWidget;
+
+/**
+ * @var AbstractWidget $block
+ */
+?>
+
+<style>
+    .<?= $widgetId ?> {
+        <?= $block->getCssStyleDeclaration('widgetMarginTop'); ?>
+        <?= $block->getCssStyleDeclaration('widgetMarginBottom'); ?>
+        <?= $block->getCssStyleDeclaration('widgetColor'); ?>
+        <?= $block->getCssStyleDeclaration('widgetBackgroundColor'); ?>
+        <?= $block->getData('widgetBackgroundGradient'); ?>
+        <?php if ($widgetBackgroundImage): ?>
+            <?= 'background-image: url(' . $block->getMedia($widgetBackgroundImage) . ');' . PHP_EOL ?>
+        <?php endif; ?>
+    }
+
+    @media (max-width: 767px) {
+        .<?= $widgetId ?> {
+            <?= $block->getCssStyleDeclaration('widgetMarginTopMobile'); ?>
+            <?= $block->getCssStyleDeclaration('widgetMarginBottomMobile'); ?>
+        }
+    }
+
+    .<?= $widgetId ?> .container {
+        <?= $block->getCssStyleDeclaration('widgetPaddingTop'); ?>
+        <?= $block->getCssStyleDeclaration('widgetPaddingBottom'); ?>
+    }
+
+    @media (max-width: 767px) {
+        .<?= $widgetId ?> .container {
+            <?= $block->getCssStyleDeclaration('widgetPaddingTopMobile'); ?>
+            <?= $block->getCssStyleDeclaration('widgetPaddingBottomMobile'); ?>
+        }
+    }
+</style>

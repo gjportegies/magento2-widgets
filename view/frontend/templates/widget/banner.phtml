@@ -5,69 +5,84 @@
  */
 ?>
 <?php
+use SR\Widgets\Block\Widget\Banner;
+
 /**
- * @var \SR\Widgets\Block\Widget\Banner $block
+ * @var Banner $block
  */
 ?>
 <?php
-$title = $this->getData('title');
-$description = $this->getData('description');
-$imageUrlDesktop = $block->getImage($this->getData('imageUrlDesktop'));
-$imageUrlMobile = $block->getImage($this->getData('imageUrlMobile'));
-$imageAlt = $this->getData('imageAlt');
+$widgetId = 'widget-' . uniqId();
+$widgetCssClass = $widgetId;
+$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width' : '';
+$widgetBackgroundImage = $block->getData('widgetBackgroundImage');
+
+$title = html_entity_decode($this->getData('title'));
+$description = html_entity_decode($this->getData('description'));
+$imageUrlDesktop = $block->getMedia($this->getData('imageUrlDesktop'));
+$imageUrlMobile = $block->getMedia($this->getData('imageUrlMobile'));
+$imageAlt = $this->getData('imageAlt') ?: $this->getData('title');
 $links = $block->getLinks();
 
 $bannerType = $this->getData('bannerType');
 
-$bannerCssClass = 'banner ' . $this->getData('bannerType') . ' ' . $this->getData('cssClass');
-$bannerCssClass .= !$block->hasContent() ? ' no-content' : '';
-$bannerContainerCssClass = $this->getData('isFullWidth') ? '' : 'container';
+$bannerCssClass = $bannerType;
+$bannerCssClass .= !$block->hasContent() ? 'no-content ' : '';
+$bannerContainerCssClass = $this->getData('cssClass');
 ?>
 
-<div class="banner-container <?= $bannerContainerCssClass ?>">
-    <?php if ($bannerType === 'image-link'): ?>
-        <a href="<?= $block->getUrl() . $links[0]['target'] ?>" class="<?= $bannerType ?>">
-            <?php if ($this->getData('imageUrlMobile')): ?>
-                <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
-                <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
-            <?php else: ?>
-                <img src="<?= $imageUrlDesktop ?>" class="banner-image" alt="<?= $imageAlt ?>">
+<?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
+
+<div class="<?= $widgetCssClass ?>">
+    <div class="banner-container container <?= $bannerContainerCssClass ?>">
+        <?php if ($bannerType === 'image-link'): ?>
+            <?php if ($this->getData('imageUrlDesktop')): ?>
+                <a href="<?= $block->getUrl() . $links[0]['target'] ?>" class="<?= $bannerType ?>">
+                    <?php if ($this->getData('imageUrlMobile')): ?>
+                        <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
+                        <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
+                    <?php else: ?>
+                        <img src="<?= $imageUrlDesktop ?>" class="banner-image" alt="<?= $imageAlt ?>">
+                    <?php endif; ?>
+                </a>
             <?php endif; ?>
-        </a>
-    <?php else: ?>
-        <div class="homepage-banner <?= $bannerCssClass ?>" <?= $block->getWidgetColorAsInlineStyle() ?>>
-            <?php if ($this->getData('imageUrlMobile')): ?>
-                <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
-                <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
-            <?php else: ?>
-                <img src="<?= $imageUrlDesktop ?>" class="banner-image" alt="<?= $imageAlt ?>">
-            <?php endif; ?>
+        <?php else: ?>
+            <div class="banner <?= $bannerCssClass ?>">
+                <?php if ($this->getData('imageUrlDesktop')): ?>
+                    <?php if ($this->getData('imageUrlMobile')): ?>
+                        <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
+                        <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
+                    <?php else: ?>
+                        <img src="<?= $imageUrlDesktop ?>" class="banner-image" alt="<?= $imageAlt ?>">
+                    <?php endif; ?>
+                <?php endif; ?>
 
-            <?php if ($block->hasContent()): ?>
-                <div class="banner-content">
-                    <?php if ($title): ?>
-                        <strong class="banner-title">
-                            <span><?= $title ?></span>
-                        </strong>
-                    <?php endif ?>
+                <?php if ($block->hasContent()): ?>
+                    <div class="banner-content">
+                        <?php if ($title): ?>
+                            <strong class="banner-title">
+                                <span><?= $title ?></span>
+                            </strong>
+                        <?php endif ?>
 
-                    <?php if ($description): ?>
-                        <p class="banner-description"><?= $description ?></p>
-                    <?php endif ?>
+                        <?php if ($description): ?>
+                            <div class="banner-description"><?= $description ?></div>
+                        <?php endif ?>
 
-                    <ul class="banner-links">
-                        <?php foreach ($links as $link): ?>
-                            <?php if ($link['label'] && $link['target']): ?>
-                            <li class="banner-link-container">
-                                <a href="<?= $block->getUrl() . $link['target'] ?>" class="banner-link">
-                                    <span><?= $link['label'] ?></span>
-                                </a>
-                            </li>
-                            <?php endif ?>
-                        <?php endforeach ?>
-                    </ul>
-                </div>
-            <?php endif ?>
-        </div>
-    <?php endif ?>
+                        <ul class="banner-links">
+                            <?php foreach ($links as $link): ?>
+                                <?php if ($link['label'] && $link['target']): ?>
+                                    <li class="banner-link-container">
+                                        <a href="<?= $block->getUrl() . $link['target'] ?>" class="banner-link">
+                                            <span><?= $link['label'] ?></span>
+                                        </a>
+                                    </li>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+    </div>
 </div>

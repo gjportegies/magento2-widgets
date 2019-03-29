@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+use SR\Widgets\Block\Adminhtml\Widget\Renderer\SwitcherRenderer;
+
+?>
+<?php
+/** @var SwitcherRenderer $block */
+$element = $block->getElement();
+?>
+
+<div class="widget-switcher-field admin__field field" data-mage-init='{"widgetSwitcherField": {}}'>
+    <label class="label admin__field-label">
+        <span><?php echo $element->getData('label'); ?></span>
+    </label>
+    <div class="admin__field-control control">
+        <div class="switcher-inputs">
+            <input type="radio" id="switcher-content" name="widget-params-sections-switcher" value="content" checked/>
+            <label for="switcher-content">Content</label>
+            <input type="radio" id="switcher-design" name="widget-params-sections-switcher" value="design"/>
+            <label for="switcher-design">Design</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+use SR\Widgets\Block\Widget\Product\ProductsList;
+
+/**
+ * @var ProductsList $block
+ */
+?>
+<?php
+$widgetId = 'widget-' . uniqId();
+$widgetCssClass = $widgetId;
+$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width' : '';
+$widgetTitle = $block->getData('widgetTitle');
+$widgetBackgroundImage = $block->getData('widgetBackgroundImage');
+
+$bannersCssClass = $this->getData('cssClass');
+?>
+
+<?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
+
+<div class="<?= $widgetCssClass ?>">
+    <div class="banners-container container <?= $bannersCssClass ?>">
+        <?php include($block->getTemplateFile('SR_Widgets::widget/product/content/grid.phtml')) ?>
+    </div>
+</div>

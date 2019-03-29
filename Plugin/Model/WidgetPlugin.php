@@ -6,6 +6,8 @@
 
 namespace SR\Widgets\Plugin\Model;
 
+use Magento\Widget\Model\Widget;
+
 class WidgetPlugin
 {
     /**
@@ -14,14 +16,14 @@ class WidgetPlugin
      *
      * discussion https://gist.github.com/cedricblondeau/6174911fb4bba6cb4943
      *
-     * @param \Magento\Widget\Model\Widget $subject
+     * @param Widget $subject
      * @param $type
      * @param array $params
      * @param bool $asIs
      * @return array
      */
     public function beforeGetWidgetDeclaration(
-        \Magento\Widget\Model\Widget $subject,
+        Widget $subject,
         $type,
         $params = [],
         $asIs = true

@@ -4,8 +4,33 @@
 //  */
 
 & when (@media-common = true) {
+    .banners-container {
+        overflow: hidden;
+    }
+
     .banners {
         .lib-list-reset-styles(@_margin: false);
         margin-bottom: 0;
+
+        &-widget-title {
+            display: block;
+        }
+
+        &-item {
+            &-image-container {
+                display: block;
+            }
+
+            &-image {
+                display: block;
+            }
+
+            &-link {
+                &,
+                &:visited {
+                    color: inherit;
+                }
+            }
+        }
     }
 }

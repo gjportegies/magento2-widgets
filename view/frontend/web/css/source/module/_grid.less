@@ -7,16 +7,21 @@
     @import 'grid/_variables.less';
     @import 'grid/_utilites.less';
 
+    .block.widget .products-grid .product-items.@{grid-prefix}row,
     .@{grid-prefix}row {
         .lib-clearfix();
         margin-left: -@grid-gutter;
         margin-right: -@grid-gutter;
     }
 
+    [class*="page-layout"] .block.widget .products-grid [class*="col-"].product-item,
     [class*="col-"] {
         float: left;
+        margin-left: 0;
+        margin-right: 0;
         padding-left: @grid-gutter;
         padding-right: @grid-gutter;
+        width: 100%;
         box-sizing: border-box;
     }
 

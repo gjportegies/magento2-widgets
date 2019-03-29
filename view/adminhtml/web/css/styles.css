@@ -1,0 +1,29 @@
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+@import 'styles/switcher-field-renderer.css';
+
+/* Widget file uploader */
+.fieldset-widget-options .file-uploader-summary {
+    display: block;
+}
+
+.fieldset-widget-options .file-uploader-preview {
+    width: 250px;
+    height: auto;
+    max-height: 350px;
+}
+
+.fieldset-widget-options .file-uploader-preview .preview-image {
+    display: block;
+}
+
+.fieldset-widget-options .file-uploader-preview .action-remove:before {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.fieldset-widget-options .file-uploader-preview .action-remove:hover:before {
+    color: #443e38;
+}

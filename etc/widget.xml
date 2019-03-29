@@ -18,176 +18,257 @@
                 </options>
             </parameter>
 
+            <parameter name="switcher" xsi:type="block">
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Switcher"/>
+            </parameter>
+
             <parameter name="isSlider" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label>Enable slider</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
             <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label>Full width widget</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
             <parameter name="cssClass" xsi:type="text">
                 <label>Css Class</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
             <parameter name="gridClasses" xsi:type="text">
                 <label>Grid Classes</label>
                 <description>
                     <![CDATA[
-                    "xxs" > 320px
-                    <br/>
-                    "xs" > 480px
-                    <br/>
-                    "sm" > 640px
-                    <br/>
-                    "md" > 768px
-                    <br/>
-                    "lg" > 1024px
-                    <br/>
-                    "xl" > 1440px
+                    <hidden data-section-scope="design"/>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>"xxs"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">320px</td>
+                            </tr>
+                            <tr>
+                                <td>"xs"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">480px</td>
+                            </tr>
+                            <tr>
+                                <td>"sm"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">640px</td>
+                            </tr>
+                            <tr>
+                                <td>"md"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">768px</td>
+                            </tr>
+                            <tr>
+                                <td>"lg"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">1024px</td>
+                            </tr>
+                            <tr>
+                                <td>"xl"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">1440px</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     ]]>
                 </description>
             </parameter>
 
+            <!--
+            /**
+             * SR-TODO: implement jQuery colorpicker for color params
+             */
+            -->
+            <parameter name="widgetColor" xsi:type="text">
+                <label>Widget Text Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetBackgroundColor" xsi:type="text">
+                <label>Widget Background Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetBackgroundGradient" xsi:type="block">
+                <label>Widget Background Gradient Code</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                        Use <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">Gradient Generator</a>
+                        to generate gradient css code <br/>
+                        (Overrides "Widget Background Color")
+                    ]]>
+                </description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
+            <parameter name="widgetBackgroundImage" xsi:type="block">
+                <label>Widget Background Image</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+            </parameter>
+
+            <parameter name="widgetMarginTop" xsi:type="text">
+                <label>Widget Margin Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginTopMobile" xsi:type="text">
+                <label>Widget Margin Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottom" xsi:type="text">
+                <label>Widget Margin Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottomMobile" xsi:type="text">
+                <label>Widget Margin Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTop" xsi:type="text">
+                <label>Widget Padding Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTopMobile" xsi:type="text">
+                <label>Widget Padding Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottom" xsi:type="text">
+                <label>Widget Padding Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottomMobile" xsi:type="text">
+                <label>Widget Padding Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
             <parameter name="widgetTitle" xsi:type="text">
                 <label>Widget Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
             <parameter name="primaryBannerTitle" xsi:type="text">
                 <label>Primary Banner Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="primaryBannerLinkLabel" xsi:type="text">
                 <label>Primary Banner Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="primaryBannerLinkURL" xsi:type="text">
                 <label>Primary Banner Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="primaryBannerImagePath" xsi:type="block">
                 <label>Primary Banner Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner1Title" xsi:type="text">
                 <label>Banner 1 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner1LinkLabel" xsi:type="text">
                 <label>Banner 1 Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner1LinkURL" xsi:type="text">
                 <label>Banner 1 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner1ImagePath" xsi:type="block">
                 <label>Banner 1 Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner2Title" xsi:type="text">
                 <label>Banner 2 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner2LinkLabel" xsi:type="text">
                 <label>Banner 2 Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner2LinkURL" xsi:type="text">
                 <label>Banner 2 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner2ImagePath" xsi:type="block">
                 <label>Banner 2 Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner3Title" xsi:type="text">
                 <label>Banner 3 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner3LinkLabel" xsi:type="text">
                 <label>Banner 3 Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner3LinkURL" xsi:type="text">
                 <label>Banner 3 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner3ImagePath" xsi:type="block">
                 <label>Banner 3 Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner4Title" xsi:type="text">
                 <label>Banner 4 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner4LinkLabel" xsi:type="text">
                 <label>Banner 4 Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner4LinkURL" xsi:type="text">
                 <label>Banner 4 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner4ImagePath" xsi:type="block">
                 <label>Banner 4 Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner5Title" xsi:type="text">
                 <label>Banner 5 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner5LinkLabel" xsi:type="text">
                 <label>Banner 5 Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner5LinkURL" xsi:type="text">
                 <label>Banner 5 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner5ImagePath" xsi:type="block">
                 <label>Banner 5 Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner6Title" xsi:type="text">
                 <label>Banner 6 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner6LinkLabel" xsi:type="text">
                 <label>Banner 6 Link Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner6LinkURL" xsi:type="text">
                 <label>Banner 6 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner6ImagePath" xsi:type="block">
                 <label>Banner 6 Image</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
         </parameters>
     </widget>
@@ -204,18 +285,27 @@
                 </options>
             </parameter>
 
+            <parameter name="switcher" xsi:type="block">
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Switcher"/>
+            </parameter>
+
             <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label>Full width widget</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
 
             <!--
             /**
-                SR-TODO: "bannerType" is deprecated. Its functionality must be replaced with "cssClass" param
+             * SR-TODO: "bannerType" is deprecated. Its functionality must be replaced with "cssClass" param
              */
             -->
             <parameter name="bannerType" xsi:type="select">
                 <label>Banner Type</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
                 <options>
+                    <option name="default" value="" selected="true">
+                        <label>Select banner type</label>
+                    </option>
                     <option name="type-1" value="type-1">
                         <label>Type 1</label>
                     </option>
@@ -238,69 +328,133 @@
             </parameter>
             <parameter name="cssClass" xsi:type="text">
                 <label>Css Class</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
-            <parameter name="colorHEX" xsi:type="text">
-                <label>Text color in HEX</label>
-                <description>Format like "#333333"</description>
+            <!--
+            /**
+             * SR-TODO: implement jQuery colorpicker for color params
+             */
+            -->
+            <parameter name="widgetColor" xsi:type="text">
+                <label>Widget Text Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetBackgroundColor" xsi:type="text">
+                <label>Widget Background Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetBackgroundGradient" xsi:type="block">
+                <label>Widget Background Gradient Code</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                        Use <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">Gradient Generator</a>
+                        to generate gradient css code <br/>
+                        (Overrides "Widget Background Color")
+                    ]]>
+                </description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
+            <parameter name="widgetBackgroundImage" xsi:type="block">
+                <label>Widget Background Image</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+            </parameter>
+
+            <parameter name="widgetMarginTop" xsi:type="text">
+                <label>Widget Margin Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginTopMobile" xsi:type="text">
+                <label>Widget Margin Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottom" xsi:type="text">
+                <label>Widget Margin Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottomMobile" xsi:type="text">
+                <label>Widget Margin Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTop" xsi:type="text">
+                <label>Widget Padding Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTopMobile" xsi:type="text">
+                <label>Widget Padding Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottom" xsi:type="text">
+                <label>Widget Padding Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottomMobile" xsi:type="text">
+                <label>Widget Padding Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
 
             <parameter name="title" xsi:type="text">
                 <label>Banner Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
-            <parameter name="description" xsi:type="text">
+            <parameter name="description" xsi:type="block">
                 <label>Banner Description</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
             </parameter>
             <parameter name="imageUrlDesktop" xsi:type="block">
                 <label>Banner Image (Desktop)</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
             <parameter name="imageUrlMobile" xsi:type="block">
                 <label>Banner Image (Mobile)</label>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\ImageChooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string">Choose Image...</item>
-                        </item>
-                    </data>
-                </block>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
             <parameter name="imageAlt" xsi:type="text">
                 <label>Image Description (Alt)</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
             <parameter name="link1Label" xsi:type="text">
                 <label>Link 1 Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="link1URL" xsi:type="text">
                 <label>Link 1 URL</label>
-                <description>or link for image if you choose "Image-link" widget type</description>
+                <description>
+                    <![CDATA[<hidden data-section-scope="content"/>]]>
+                    or link for image if you choose "Image-link" widget type
+                </description>
             </parameter>
 
             <parameter name="link2Label" xsi:type="text">
                 <label>Link 2 Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="link2URL" xsi:type="text">
                 <label>Link 2 URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
             <parameter name="link3Label" xsi:type="text">
                 <label>Link 3 Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="link3URL" xsi:type="text">
                 <label>Link 3 URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
             <parameter name="link4Label" xsi:type="text">
                 <label>Link 4 Label</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="link4URL" xsi:type="text">
                 <label>Link 4 URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
         </parameters>
     </widget>
@@ -423,5 +577,216 @@
                 <label>Link 6 URL</label>
             </parameter>
         </parameters>
+    </widget>
+
+    <widget id="homepage_video" class="SR\Widgets\Block\Widget\HomepageVideo" placeholder_image="SR_Widgets::images/widget_placeholders/homepage_video.gif">
+        <label>Homepage Video</label>
+        <description>Homepage Video</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <options>
+                    <option name="default" value="widget/homepage_video.phtml" selected="true">
+                        <label>Default</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="videoUrl" xsi:type="text">
+                <label>Video Url</label>
+            </parameter>
+
+            <parameter name="videoFile" xsi:type="block">
+                <label>Video File</label>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\VideoField"/>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="products_list" class="SR\Widgets\Block\Widget\Product\ProductsList" is_email_compatible="true" placeholder_image="SR_Widgets::images/widget_placeholders/products_list.png" ttl="86400">
+        <label>Catalog Products List</label>
+        <description>List of Products</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <label>Template</label>
+                <options>
+                    <option name="default" value="SR_Widgets::widget/catalog_products_list.phtml" selected="true">
+                        <label>Products Grid Template</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="switcher" xsi:type="block" sort_order="0">
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Switcher"/>
+            </parameter>
+
+            <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Full width widget</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="cssClass" xsi:type="text">
+                <label>Css Class</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="gridClasses" xsi:type="text">
+                <label>Grid Classes</label>
+                <description>
+                    <![CDATA[
+                    <hidden data-section-scope="design"/>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>"xxs"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">320px</td>
+                            </tr>
+                            <tr>
+                                <td>"xs"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">480px</td>
+                            </tr>
+                            <tr>
+                                <td>"sm"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">640px</td>
+                            </tr>
+                            <tr>
+                                <td>"md"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">768px</td>
+                            </tr>
+                            <tr>
+                                <td>"lg"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">1024px</td>
+                            </tr>
+                            <tr>
+                                <td>"xl"</td>
+                                <td>&nbsp; &gt; &nbsp;</td>
+                                <td align="right">1440px</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    ]]>
+                </description>
+            </parameter>
+
+            <!--
+            /**
+             * SR-TODO: implement jQuery colorpicker for color params
+             */
+            -->
+            <parameter name="widgetColor" xsi:type="text">
+                <label>Widget Text Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetBackgroundColor" xsi:type="text">
+                <label>Widget Background Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetBackgroundGradient" xsi:type="block">
+                <label>Widget Background Gradient Code</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                        Use <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">Gradient Generator</a>
+                        to generate gradient css code <br/>
+                        (Overrides "Widget Background Color")
+                    ]]>
+                </description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
+            <parameter name="widgetBackgroundImage" xsi:type="block">
+                <label>Widget Background Image</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+            </parameter>
+
+            <parameter name="widgetMarginTop" xsi:type="text">
+                <label>Widget Margin Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginTopMobile" xsi:type="text">
+                <label>Widget Margin Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottom" xsi:type="text">
+                <label>Widget Margin Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottomMobile" xsi:type="text">
+                <label>Widget Margin Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTop" xsi:type="text">
+                <label>Widget Padding Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTopMobile" xsi:type="text">
+                <label>Widget Padding Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottom" xsi:type="text">
+                <label>Widget Padding Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottomMobile" xsi:type="text">
+                <label>Widget Padding Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="title" xsi:type="text" sort_order="1">
+                <label>Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+
+            <parameter name="show_pager" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno" visible="false">
+                <label>Display Page Control</label>
+            </parameter>
+            <parameter name="products_per_page" xsi:type="text" required="true">
+                <label>Number of Products per Page</label>
+                <depends>
+                    <parameter name="show_pager" value="1"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="false">
+                <label>Number of Products to Display</label>
+                <value>100</value>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="false">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" required="true" sort_order="10" class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label>Conditions</label>
+            </parameter>
+
+            <!--
+            /**
+             * SR-TODO: dirty solution
+             */
+            -->
+            <parameter name="productsTextLabels" xsi:type="text">
+                <label>Products Text Labels</label>
+                <description>
+                    <![CDATA[
+                    <hidden data-section-scope="content"/>
+                    List of products text labels separated by comma.
+                    <br/>
+                    Example: rub., drop., vape.
+                    ]]>
+                </description>
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="content">
+                <template name="grid" value="default"/>
+            </container>
+            <container name="content.top">
+                <template name="grid" value="default"/>
+            </container>
+            <container name="content.bottom">
+                <template name="grid" value="default"/>
+            </container>
+        </containers>
     </widget>
 </widgets>
