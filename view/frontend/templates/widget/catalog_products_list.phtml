@@ -5,6 +5,7 @@
  */
 ?>
 <?php
+
 use SR\Widgets\Block\Widget\Product\ProductsList;
 
 /**
@@ -24,7 +25,7 @@ $bannersCssClass = $this->getData('cssClass');
 <?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
 
 <div class="<?= $widgetCssClass ?>">
-    <div class="banners-container container <?= $bannersCssClass ?>">
+    <div class="block-products-list-container container <?= $bannersCssClass ?>">
         <?php include($block->getTemplateFile('SR_Widgets::widget/product/content/grid.phtml')) ?>
     </div>
 </div>
