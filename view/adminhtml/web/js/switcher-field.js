@@ -12,7 +12,7 @@ define([
     $.widget('sr_widgets.switcherField', {
         _create: function () {
             var self = this;
-            var $widgetOptions = $('#widget_options');
+            var $widgetOptions = $('#widget_options, #edit_form');
 
             $widgetOptions.on('contentUpdated', function () {
                 self.updateWidgetParamsSectionsVisibility();
@@ -43,6 +43,8 @@ define([
                     }
 
                     self.toggleSpecificFieldVisibility($widgetOption, '.rule-tree', 'show');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-fieldset-element-label-parameters-block-id-label]', 'show');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-element-hidden-parameters-block-id]', 'show');
                 }
 
                 if (selectedSection === 'design') {
@@ -55,6 +57,8 @@ define([
                     }
 
                     self.toggleSpecificFieldVisibility($widgetOption, '.rule-tree', 'hide');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-fieldset-element-label-parameters-block-id-label]', 'hide');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-element-hidden-parameters-block-id]', 'hide');
                 }
             });
         },

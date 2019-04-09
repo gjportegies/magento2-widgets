@@ -27,3 +27,12 @@
 .fieldset-widget-options .file-uploader-preview .action-remove:hover:before {
     color: #443e38;
 }
+
+/* Widget colorpicker */
+.field-colorpicker .control-value {
+    display: none;
+}
+
+.colorpicker {
+    z-index: 990;
+}

@@ -9,13 +9,13 @@ namespace SR\Widgets\Block\Adminhtml\Widget;
 use Magento\Backend\Block\Template;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Exception\LocalizedException;
-use SR\Widgets\Block\Adminhtml\Widget\Renderer\SwitcherRenderer;
+use SR\Widgets\Block\Adminhtml\Widget\Renderer\ColorPickerRenderer;
 
-class Switcher extends Template
+class ColorPickerField extends Template
 {
     public function prepareElementHtml(AbstractElement $element)
     {
-        /** @var SwitcherRenderer $fieldRenderer */
+        /** @var ColorPickerRenderer $fieldRenderer */
         try {
             $layout = $this->getLayout();
         } catch (LocalizedException $exception) {
@@ -23,7 +23,7 @@ class Switcher extends Template
             return;
         }
 
-        $fieldRenderer = $layout->createBlock(SwitcherRenderer::class);
+        $fieldRenderer = $layout->createBlock(ColorPickerRenderer::class);
         $element->setRenderer($fieldRenderer);
     }
 }

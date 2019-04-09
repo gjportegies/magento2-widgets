@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+
+use SR\Widgets\Block\Widget\SRCMSStaticBlock;
+
+/**
+ * @var SRCMSStaticBlock $block
+ */
+?>
+<?php
+$widgetId = 'widget-' . uniqId();
+$widgetCssClass = $widgetId;
+$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width' : '';
+$widgetTitle = $block->getData('widgetTitle');
+$widgetBackgroundImage = $block->getData('widgetBackgroundImage');
+
+$bannersCssClass = $this->getData('cssClass');
+?>
+
+<?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
+
+<div class="<?= $widgetCssClass ?>">
+    <div class="block-static-block-container container <?= $bannersCssClass ?>">
+        <?php include($block->getTemplateFile('SR_Widgets::widget/static_block/default.phtml')) ?>
+    </div>
+</div>

@@ -77,18 +77,15 @@
                 </description>
             </parameter>
 
-            <!--
-            /**
-             * SR-TODO: implement jQuery colorpicker for color params
-             */
-            -->
-            <parameter name="widgetColor" xsi:type="text">
+            <parameter name="widgetColor" xsi:type="block">
                 <label>Widget Text Color</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
             </parameter>
-            <parameter name="widgetBackgroundColor" xsi:type="text">
+            <parameter name="widgetBackgroundColor" xsi:type="block">
                 <label>Widget Background Color</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
             </parameter>
             <parameter name="widgetBackgroundGradient" xsi:type="block">
                 <label>Widget Background Gradient Code</label>
@@ -330,18 +327,16 @@
                 <label>Css Class</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
-            <!--
-            /**
-             * SR-TODO: implement jQuery colorpicker for color params
-             */
-            -->
-            <parameter name="widgetColor" xsi:type="text">
+
+            <parameter name="widgetColor" xsi:type="block">
                 <label>Widget Text Color</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
             </parameter>
-            <parameter name="widgetBackgroundColor" xsi:type="text">
+            <parameter name="widgetBackgroundColor" xsi:type="block">
                 <label>Widget Background Color</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
             </parameter>
             <parameter name="widgetBackgroundGradient" xsi:type="block">
                 <label>Widget Background Gradient Code</label>
@@ -670,18 +665,15 @@
                 </description>
             </parameter>
 
-            <!--
-            /**
-             * SR-TODO: implement jQuery colorpicker for color params
-             */
-            -->
-            <parameter name="widgetColor" xsi:type="text">
+            <parameter name="widgetColor" xsi:type="block">
                 <label>Widget Text Color</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
             </parameter>
-            <parameter name="widgetBackgroundColor" xsi:type="text">
+            <parameter name="widgetBackgroundColor" xsi:type="block">
                 <label>Widget Background Color</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
             </parameter>
             <parameter name="widgetBackgroundGradient" xsi:type="block">
                 <label>Widget Background Gradient Code</label>
@@ -788,5 +780,105 @@
                 <template name="grid" value="default"/>
             </container>
         </containers>
+    </widget>
+
+    <widget id="sr_cms_static_block" class="SR\Widgets\Block\Widget\SRCMSStaticBlock" placeholder_image="SR_Widgets::images/widget_placeholders/widget_block.png">
+        <label>SR CMS Static Block</label>
+        <description>Contents of a Static Block</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
+                <label>Template</label>
+                <options>
+                    <option name="default" value="SR_Widgets::widget/sr-cms-static-block.phtml" selected="true">
+                        <label>CMS Static Block Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="switcher" xsi:type="block" sort_order="0">
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Switcher"/>
+            </parameter>
+
+            <parameter name="block_id" xsi:type="block" visible="true" required="true" sort_order="20">
+                <label>Block</label>
+                <block class="Magento\Cms\Block\Adminhtml\Block\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Select Block...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Full width widget</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="cssClass" xsi:type="text">
+                <label>Css Class</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+
+            <parameter name="widgetColor" xsi:type="block">
+                <label>Widget Text Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
+            </parameter>
+            <parameter name="widgetBackgroundColor" xsi:type="block">
+                <label>Widget Background Color</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\ColorPickerField"/>
+            </parameter>
+            <parameter name="widgetBackgroundGradient" xsi:type="block">
+                <label>Widget Background Gradient Code</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                        Use <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">Gradient Generator</a>
+                        to generate gradient css code <br/>
+                        (Overrides "Widget Background Color")
+                    ]]>
+                </description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
+            <parameter name="widgetBackgroundImage" xsi:type="block">
+                <label>Widget Background Image</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+            </parameter>
+
+            <parameter name="widgetMarginTop" xsi:type="text">
+                <label>Widget Margin Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginTopMobile" xsi:type="text">
+                <label>Widget Margin Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottom" xsi:type="text">
+                <label>Widget Margin Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetMarginBottomMobile" xsi:type="text">
+                <label>Widget Margin Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTop" xsi:type="text">
+                <label>Widget Padding Top (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingTopMobile" xsi:type="text">
+                <label>Widget Padding Top (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottom" xsi:type="text">
+                <label>Widget Padding Bottom (Desktop)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="widgetPaddingBottomMobile" xsi:type="text">
+                <label>Widget Padding Bottom (Mobile)</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+        </parameters>
     </widget>
 </widgets>

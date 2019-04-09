@@ -16,7 +16,8 @@ var config = {
     },
     map: {
         '*': {
-            widgetSwitcherField: 'SR_Widgets/js/switcher-field'
+            widgetSwitcherField: 'SR_Widgets/js/switcher-field',
+            widgetColorPickerField: 'SR_Widgets/js/colorpicker-field'
         }
     }
 };
