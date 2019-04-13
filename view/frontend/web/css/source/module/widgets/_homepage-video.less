@@ -4,9 +4,18 @@
 //  */
 
 & when (@media-common = true) {
+    .has-homepage-video {
+        .page-header {
+            .panel.wrapper {
+                .lib-css(background-color, fade(@header-panel__background-color, 50%));
+            }
+        }
+    }
+
     .homepage-video {
         position: absolute;
         top: 0;
+        z-index: -1;
     }
 
     .homepage-video {
