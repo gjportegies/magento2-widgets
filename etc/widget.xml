@@ -26,6 +26,15 @@
                 <label>Enable slider</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
+            <parameter name="sliderConfig" xsi:type="block">
+                <label>Slider Config</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                    ]]>
+                </description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
             <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label>Full width widget</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
@@ -267,6 +276,12 @@
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
                 <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
             </parameter>
+
+            <parameter name="bannersFooter" xsi:type="block">
+                <label>Banners Footer Content</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
+            </parameter>
         </parameters>
     </widget>
 
@@ -396,7 +411,7 @@
             <parameter name="description" xsi:type="block">
                 <label>Banner Description</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
             </parameter>
             <parameter name="imageUrlDesktop" xsi:type="block">
                 <label>Banner Image (Desktop)</label>
@@ -786,7 +801,7 @@
         <label>SR CMS Static Block</label>
         <description>Contents of a Static Block</description>
         <parameters>
-            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
+            <parameter name="template" xsi:type="select" visible="false" required="true" sort_order="10">
                 <label>Template</label>
                 <options>
                     <option name="default" value="SR_Widgets::widget/sr-cms-static-block.phtml" selected="true">
@@ -808,6 +823,40 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+
+            <parameter name="widgetTitle" xsi:type="text">
+                <label>Widget Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+
+            <parameter name="widgetType" xsi:type="select">
+                <label>Widget Type</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <options>
+                    <option name="default" value="cms_static_block" selected="true">
+                        <label>CMS Static Block</label>
+                    </option>
+                    <option name="collapsible_blocks_container" value="collapsible_blocks_container">
+                        <label>Collapsible Blocks Container</label>
+                    </option>
+                    <option name="slider_blocks_container" value="slider_blocks_container">
+                        <label>Slider Blocks Container</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="sliderConfig" xsi:type="block">
+                <label>Slider Config</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                    ]]>
+                </description>
+                <depends>
+                    <parameter name="widgetType" value="slider_blocks_container"/>
+                </depends>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
             </parameter>
 
             <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
@@ -878,6 +927,38 @@
             <parameter name="widgetPaddingBottomMobile" xsi:type="text">
                 <label>Widget Padding Bottom (Mobile)</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="collapsible_block" class="SR\Widgets\Block\Widget\CollapsibleBlock" placeholder_image="SR_Widgets::images/widget_placeholders/widget_block.png">
+        <label>Collapsible Block</label>
+        <description>Block with title and collapsible content</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <options>
+                    <option name="default" value="widget/collapsible_block.phtml" selected="true">
+                        <label>Default</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="blockTitle" xsi:type="text">
+                <label>Block Title</label>
+            </parameter>
+
+            <parameter name="blockContent" xsi:type="block">
+                <label>Block Content</label>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
+            </parameter>
+
+            <parameter name="isActive" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Is Active</label>
+                <description>Is collapsible block content open by default</description>
+            </parameter>
+
+            <parameter name="cssClass" xsi:type="text">
+                <label>Css Class</label>
             </parameter>
         </parameters>
     </widget>

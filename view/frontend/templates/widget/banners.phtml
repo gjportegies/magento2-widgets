@@ -5,6 +5,7 @@
  */
 ?>
 <?php
+
 use SR\Widgets\Block\Widget\Banners;
 
 /**
@@ -12,9 +13,12 @@ use SR\Widgets\Block\Widget\Banners;
  */
 ?>
 <?php
-$widgetId = 'widget-' . uniqId();
-$widgetCssClass = $widgetId;
-$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width' : '';
+$widgetId = uniqId('widget-');
+$widgetCssClass = 'widget ' . $widgetId . ' ';
+$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width ' : '';
+$widgetCssClass .= $this->getData('isSlider') ? ' banners-has-slider ' : '';
+$widgetCssClass .= $block->hasPrimaryBanner() ? ' has-primary-banner ' : '';
+$widgetCssClass .= $this->getData('cssClass');
 $widgetTitle = $block->getData('widgetTitle');
 $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
 
@@ -27,15 +31,16 @@ $banners = $block->getItems();
 $bannersAmount = $block->getItemsAmount();
 $bannersGridRowClasses = 'widget-row';
 $bannersGridColumnClasses = $this->getData('gridClasses');
-$bannersCssClass = $this->getData('cssClass');
-$bannersCssClass .= $this->getData('isSlider') ? 'banner-slider ' : '';
-$bannersCssClass .= $block->hasPrimaryBanner() ? 'has-primary-banner ' : '';
+$bannersSliderCssClass = $this->getData('isSlider') ? 'owl-carousel banners-slider' : '';
+$bannersFooter = $block->getData('bannersFooter');
+
+$sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderConfig') . '}' : '{}';
 ?>
 
 <?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
 
-<div class="<?= $widgetCssClass ?>">
-    <div class="banners-container container <?= $bannersCssClass ?>">
+<div class="<?= $widgetCssClass ?>" data-widget-id="<?= $widgetId ?>">
+    <div class="banners-container container">
         <?php if ($widgetTitle): ?>
             <strong class="banners-widget-title">
                 <span><?= $widgetTitle ?></span>
@@ -60,7 +65,7 @@ $bannersCssClass .= $block->hasPrimaryBanner() ? 'has-primary-banner ' : '';
                 </a>
             </div>
         <?php endif; ?>
-        <ul class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridRowClasses ?>">
+        <ul class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridRowClasses ?> <?= $bannersSliderCssClass ?>">
             <?php foreach ($banners as $banner): ?>
                 <li class="<?= $bannersGridColumnClasses ?>">
                     <div class="banners-item">
@@ -76,23 +81,43 @@ $bannersCssClass .= $block->hasPrimaryBanner() ? 'has-primary-banner ' : '';
                             <?php endif; ?>
                         <?php endif; ?>
 
-                        <div class="banners-item-panel">
-                            <?php if ($banner['title']): ?>
-                                <strong class="banners-item-title">
-                                    <span><?= $banner['title'] ?></span>
-                                </strong>
-                            <?php endif; ?>
+                        <?php if ($banner['title'] || ($banner['link_label'] && $banner['link_address'])): ?>
+                            <div class="banners-item-panel">
+                                <?php if ($banner['title']): ?>
+                                    <strong class="banners-item-title">
+                                        <span><?= $banner['title'] ?></span>
+                                    </strong>
+                                <?php endif; ?>
 
-                            <?php if ($banner['link_label'] && $banner['link_address']): ?>
-                                <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-link"
-                                   title="<?= $banner['title'] ?>">
-                                    <?= $banner['link_label'] ?>
-                                </a>
-                            <?php endif; ?>
-                        </div>
+                                <?php if ($banner['link_label'] && $banner['link_address']): ?>
+                                    <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-link" title="<?= $banner['title'] ?>">
+                                        <span><?= $banner['link_label'] ?></span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </li>
             <?php endforeach; ?>
         </ul>
+
+        <?php if ($bannersFooter): ?>
+            <div class="banners-footer"><?= html_entity_decode($bannersFooter) ?></div>
+        <?php endif; ?>
     </div>
 </div>
+
+<?php if ($this->getData('isSlider')): ?>
+    <?php include($block->getTemplateFile('SR_Widgets::widget/slider_assets_loader.phtml')) ?>
+
+    <script>
+        require([
+            'jquery',
+            'owlCarousel2'
+        ], function ($) {
+            $(document).ready(function () {
+                $('.<?= $widgetId ?> .owl-carousel').owlCarousel(<?= $sliderConfig ?>);
+            });
+        });
+    </script>
+<?php endif; ?>

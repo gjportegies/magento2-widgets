@@ -37,6 +37,11 @@ class WidgetPlugin
                 $directive = base64_decode(strtr($matches[2], '-_,', '+/='));
                 $params[$name] = str_replace(['{{media url="', '"}}'], ['', ''], $directive);
             }
+
+            if ($name == 'description') {
+                /* SR-TODO: dirty fix (god forgive me) */
+                $params[$name] = str_replace('"', "'", $value);
+            }
         }
 
         return [$type, $params, $asIs];
