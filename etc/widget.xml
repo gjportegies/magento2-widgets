@@ -111,7 +111,7 @@
             <parameter name="widgetBackgroundImage" xsi:type="block">
                 <label>Widget Background Image</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="widgetMarginTop" xsi:type="text">
@@ -166,7 +166,7 @@
             <parameter name="primaryBannerImagePath" xsi:type="block">
                 <label>Primary Banner Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner1Title" xsi:type="text">
@@ -184,7 +184,7 @@
             <parameter name="banner1ImagePath" xsi:type="block">
                 <label>Banner 1 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner2Title" xsi:type="text">
@@ -202,7 +202,7 @@
             <parameter name="banner2ImagePath" xsi:type="block">
                 <label>Banner 2 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner3Title" xsi:type="text">
@@ -220,7 +220,7 @@
             <parameter name="banner3ImagePath" xsi:type="block">
                 <label>Banner 3 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner4Title" xsi:type="text">
@@ -238,7 +238,7 @@
             <parameter name="banner4ImagePath" xsi:type="block">
                 <label>Banner 4 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner5Title" xsi:type="text">
@@ -256,7 +256,7 @@
             <parameter name="banner5ImagePath" xsi:type="block">
                 <label>Banner 5 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="banner6Title" xsi:type="text">
@@ -274,7 +274,7 @@
             <parameter name="banner6ImagePath" xsi:type="block">
                 <label>Banner 6 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="bannersFooter" xsi:type="block">
@@ -368,7 +368,7 @@
             <parameter name="widgetBackgroundImage" xsi:type="block">
                 <label>Widget Background Image</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="widgetMarginTop" xsi:type="text">
@@ -416,12 +416,12 @@
             <parameter name="imageUrlDesktop" xsi:type="block">
                 <label>Banner Image (Desktop)</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
             <parameter name="imageUrlMobile" xsi:type="block">
                 <label>Banner Image (Mobile)</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
             <parameter name="imageAlt" xsi:type="text">
                 <label>Image Description (Alt)</label>
@@ -607,7 +607,7 @@
 
             <parameter name="videoFile" xsi:type="block">
                 <label>Video File</label>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\VideoField"/>
+                <block class="SR\Widgets\Block\Adminhtml\VideoField"/>
             </parameter>
         </parameters>
     </widget>
@@ -705,7 +705,7 @@
             <parameter name="widgetBackgroundImage" xsi:type="block">
                 <label>Widget Background Image</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="widgetMarginTop" xsi:type="text">
@@ -893,7 +893,7 @@
             <parameter name="widgetBackgroundImage" xsi:type="block">
                 <label>Widget Background Image</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
-                <block class="Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField"/>
+                <block class="SR\Widgets\Block\Adminhtml\ImageField"/>
             </parameter>
 
             <parameter name="widgetMarginTop" xsi:type="text">

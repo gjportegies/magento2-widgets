@@ -10,7 +10,7 @@ define([
     'use strict';
 
     return function (target) {
-        $.widget('staempfli_widgetextrafields.imagefield', target, {
+        $.widget('sr_widgets.imagefield', target, {
             updateImage: function () {
                 var newImageUrl = this.getImagePathInput().val();
                 this.getLinkElement().attr('href', newImageUrl);
@@ -19,6 +19,6 @@ define([
             }
         });
 
-        return $.staempfli_widgetextrafields.imagefield;
+        return $.sr_widgets.imagefield;
     };
 });

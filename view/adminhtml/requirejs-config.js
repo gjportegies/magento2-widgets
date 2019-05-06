@@ -6,16 +6,18 @@
 var config = {
     config: {
         mixins: {
-            'Staempfli_WidgetExtraFields/js/imagefield': {
+            'SR_Widgets/js/imagefield': {
                 'SR_Widgets/js/imagefield-mixin': true
             },
-            'Staempfli_WidgetExtraFields/js/videofield': {
+            'SR_Widgets/js/videofield': {
                 'SR_Widgets/js/videofield-mixin': true
             }
         }
     },
     map: {
         '*': {
+            widgetImageField: 'SR_Widgets/js/imagefield',
+            widgetVideoField: 'SR_Widgets/js/videofield',
             widgetSwitcherField: 'SR_Widgets/js/switcher-field',
             widgetColorPickerField: 'SR_Widgets/js/colorpicker-field'
         }

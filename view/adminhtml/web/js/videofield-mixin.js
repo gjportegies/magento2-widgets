@@ -10,7 +10,7 @@ define([
     'use strict';
 
     return function (target) {
-        $.widget('staempfli_widgetextrafields.videofield', target, {
+        $.widget('sr_widgets.videofield', target, {
             updateVideo: function () {
                 var newVideoUrl = this.getVideoPathInput().val();
                 this.getLinkElement().attr('href', newVideoUrl);
@@ -19,6 +19,6 @@ define([
             }
         });
 
-        return $.staempfli_widgetextrafields.videofield;
+        return $.sr_widgets.videofield;
     };
 });

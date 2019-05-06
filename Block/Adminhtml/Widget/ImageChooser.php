@@ -17,7 +17,7 @@ use Magento\Framework\Exception\LocalizedException;
 /**
  * @deprecated
  *
- * Use Staempfli\WidgetExtraFields\Block\Adminhtml\ImageField instead
+ * Use SR\Widgets\Block\Adminhtml\ImageField instead
  */
 class ImageChooser extends Template
 {

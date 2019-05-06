@@ -12,8 +12,7 @@
   ],
   "require": {
     "php": "~7.0|~7.1|~7.2",
-    "magento/framework": "*",
-    "staempfli/magento2-module-widget-extra-fields": "*"
+    "magento/framework": "*"
   },
   "autoload": {
     "files": [
