@@ -1,0 +1,93 @@
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+.fieldset-widget-options.has-switcher-field {
+    position: relative;
+}
+
+.fieldset-widget-options.has-switcher-field .admin__field:not(.admin__field-option) > .admin__field-label,
+.admin__scope-old .form-inline .fieldset-widget-options.has-switcher-field > .field > .label {
+    padding-left: 10px;
+}
+
+.admin__fieldset > .admin__field.widget-switcher-field {
+    position: static;
+}
+
+.widget-switcher-field:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    display: block;
+    border: 1px solid #ccc;
+    pointer-events: none;
+}
+
+.admin__scope-old .form-inline .field.widget-switcher-field:before {
+    display: block;
+}
+
+#widget_options_form .widget-switcher-field:before {
+    top: 97px;
+}
+
+#edit_form .widget-switcher-field:before {
+    top: 107px;
+}
+
+.widget-switcher-field .admin__field-label {
+    display: none;
+}
+
+.admin__fieldset > .admin__field.widget-switcher-field > .admin__field-control {
+    float: none;
+    width: 100%;
+}
+
+.switcher-inputs {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.switcher-inputs input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switcher-inputs label {
+    background-color: #f6f6f6;
+    color: #333;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 14px 35px;
+    margin-right: -1px;
+    border: 1px solid #ccc;
+}
+
+.switcher-inputs label:hover {
+    cursor: pointer;
+}
+
+.switcher-inputs input:not(:checked) + label:hover {
+    cursor: pointer;
+    background-color: #e9e9e9;
+}
+
+.switcher-inputs input:checked + label {
+    background-color: #fff;
+    border-bottom-color: #fff;
+    box-shadow: none;
+    cursor: default;
+}

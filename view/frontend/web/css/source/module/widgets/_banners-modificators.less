@@ -1,0 +1,38 @@
+// /**
+//  * Copyright © 2019 Studio Raz. All rights reserved.
+//  * See LICENSE.txt for license details.
+//  */
+
+& when (@media-common = true) {
+    [class*="zoom-image-on-hover-by"] {
+        .banners-item-image {
+            transition: transform .3s;
+        }
+    }
+
+    .zoom-image-on-hover-by {
+        &-3 {
+            .banners-item-image:hover {
+                transform: scale(1.03);
+            }
+        }
+
+        &-5 {
+            .banners-item-image:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        &-10 {
+            .banners-item-image:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &-15 {
+            .banners-item-image:hover {
+                transform: scale(1.15);
+            }
+        }
+    }
+}

@@ -12,6 +12,11 @@
         .lib-list-reset-styles(@_margin: false);
         margin-bottom: 0;
 
+        &.widget-row.banners-slider {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         &-widget-title {
             margin-bottom: 30px;
             display: block;
@@ -37,6 +42,19 @@
 
             &-link {
                 &,
+                &:visited {
+                    color: inherit;
+                }
+            }
+        }
+
+        &-footer {
+            padding-top: 25px;
+            padding-bottom: 25px;
+
+            a {
+                &,
+                &:hover,
                 &:visited {
                     color: inherit;
                 }

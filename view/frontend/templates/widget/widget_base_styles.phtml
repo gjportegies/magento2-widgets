@@ -12,7 +12,7 @@ use SR\Widgets\Block\Widget\AbstractWidget;
  */
 ?>
 
-<style>
+<style data-styles-for="<?= $widgetId ?>">
     .<?= $widgetId ?> {
         <?= $block->getCssStyleDeclaration('widgetMarginTop'); ?>
         <?= $block->getCssStyleDeclaration('widgetMarginBottom'); ?>

@@ -3,7 +3,7 @@
  * See LICENSE.txt for license details.
  */
 
-@import 'styles/switcher-field-renderer.css';
+@import 'styles/switcher-field.css';
 
 /* Widget file uploader */
 .fieldset-widget-options .file-uploader-summary {
@@ -13,7 +13,7 @@
 .fieldset-widget-options .file-uploader-preview {
     width: 250px;
     height: auto;
-    max-height: 350px;
+    max-height: 500px;
 }
 
 .fieldset-widget-options .file-uploader-preview .preview-image {

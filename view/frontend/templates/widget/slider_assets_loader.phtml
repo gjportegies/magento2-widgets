@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+
+use SR\Widgets\Block\Widget\AbstractWidget;
+
+/**
+ * @var AbstractWidget $block
+ */
+?>
+<?php
+$moduleStaticDirUrl = $block->getViewFileUrl('') . DIRECTORY_SEPARATOR . $block->getModuleName() . DIRECTORY_SEPARATOR;
+?>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        /* If FE theme doesn't include slider styles will be used slider styles from the module */
+
+        var REQUIRED_ASSETS = [
+            'OwlCarousel2/assets/owl.carousel.css',
+            'OwlCarousel2/assets/owl.theme.default.css'
+        ];
+
+        $.each(REQUIRED_ASSETS, function (i, assetPath) {
+            if (!getIsAssetInjected(assetPath)) {
+                injectedAsset(assetPath);
+            }
+        });
+
+        /**
+         * @param assetPath {String}
+         * @returns {Boolean}
+         */
+        function getIsAssetInjected(assetPath) {
+            var $asset = $('link[href$="' + assetPath + '"]');
+
+            return !!$asset.length;
+        }
+
+        /**
+         * @param assetPath {String}
+         * @returns {void}
+         */
+        function injectedAsset(assetPath) {
+            $('<link rel="stylesheet" type="text/css" href="<?= $moduleStaticDirUrl ?>' + assetPath + '">').appendTo('head');
+        }
+    });
+</script>

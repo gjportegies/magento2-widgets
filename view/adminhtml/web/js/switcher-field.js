@@ -16,6 +16,10 @@ define([
 
             $widgetOptions.on('contentUpdated', function () {
                 self.updateWidgetParamsSectionsVisibility();
+
+                $widgetOptions.each(function () {
+                    $(this).find('.fieldset-widget-options').addClass('has-switcher-field');
+                });
             });
 
             $('input[name="widget-params-sections-switcher"]').on('click', function () {
@@ -45,6 +49,9 @@ define([
                     self.toggleSpecificFieldVisibility($widgetOption, '.rule-tree', 'show');
                     self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-fieldset-element-label-parameters-block-id-label]', 'show');
                     self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-element-hidden-parameters-block-id]', 'show');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=wysiwyg-widget-options-fieldset-element-label-parameters-block-id-label]', 'show');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=wysiwyg-widget-options-element-hidden-parameters-block-id]', 'show');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=wysiwyg-widget-options-fieldset-element-select-parameters-template-label]', 'show');
                 }
 
                 if (selectedSection === 'design') {
@@ -59,6 +66,9 @@ define([
                     self.toggleSpecificFieldVisibility($widgetOption, '.rule-tree', 'hide');
                     self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-fieldset-element-label-parameters-block-id-label]', 'hide');
                     self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=widget-instance-edit-tab-properties-element-hidden-parameters-block-id]', 'hide');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=wysiwyg-widget-options-fieldset-element-label-parameters-block-id-label]', 'hide');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=wysiwyg-widget-options-element-hidden-parameters-block-id]', 'hide');
+                    self.toggleSpecificFieldVisibility($widgetOption, '[data-ui-id=wysiwyg-widget-options-fieldset-element-select-parameters-template-label]', 'hide');
                 }
             });
         },

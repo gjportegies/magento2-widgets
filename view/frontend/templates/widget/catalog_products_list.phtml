@@ -13,19 +13,18 @@ use SR\Widgets\Block\Widget\Product\ProductsList;
  */
 ?>
 <?php
-$widgetId = 'widget-' . uniqId();
-$widgetCssClass = $widgetId;
-$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width' : '';
+$widgetId = uniqId('widget-');
+$widgetCssClass = 'widget ' . $widgetId . ' ';
+$widgetCssClass .= $this->getData('isFullWidth') ? ' full-width ' : '';
+$widgetCssClass .= $this->getData('cssClass');
 $widgetTitle = $block->getData('widgetTitle');
 $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
-
-$bannersCssClass = $this->getData('cssClass');
 ?>
 
 <?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
 
-<div class="<?= $widgetCssClass ?>">
-    <div class="block-products-list-container container <?= $bannersCssClass ?>">
+<div class="<?= $widgetCssClass ?>" data-widget-id="<?= $widgetId ?>">
+    <div class="block-products-list-container container">
         <?php include($block->getTemplateFile('SR_Widgets::widget/product/content/grid.phtml')) ?>
     </div>
 </div>

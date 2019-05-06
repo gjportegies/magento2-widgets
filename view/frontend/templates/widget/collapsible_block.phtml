@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © 2019 Studio Raz. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+
+use SR\Widgets\Block\Widget\CollapsibleBlock;
+
+/**
+ * @var CollapsibleBlock $block
+ */
+?>
+<?php
+$blockId = 'block-' . uniqId();
+$blockCssClass = $this->getData('cssClass');
+$blockTitle = $this->getData('blockTitle');
+$blockContent = html_entity_decode($this->getData('blockContent'));
+$blockIsActive = $this->getData('isActive');
+?>
+
+<div data-role="collapsible" class="<?= $blockId ?> collapsible-block <?= $blockCssClass ?>">
+    <div data-role="title" class="collapsible-block-title"><?= $blockTitle ?></div>
+    <div data-role="content" class="collapsible-block-content">
+        <div class="collapsible-block-content-inner"><?= $blockContent ?></div>
+    </div>
+
+    <?php if ($blockIsActive): ?>
+        <script>
+            require([
+                'jquery'
+            ], function ($) {
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        $('.<?= $blockId ?>').collapsible('activate');
+                    }, 1000);
+                });
+            });
+        </script>
+    <?php endif; ?>
+</div>

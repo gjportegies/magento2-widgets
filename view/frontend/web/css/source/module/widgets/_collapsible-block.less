@@ -1,0 +1,33 @@
+// /**
+//  * Copyright © 2019 Studio Raz. All rights reserved.
+//  * See LICENSE.txt for license details.
+//  */
+
+& when (@media-common = true) {
+    .collapsible-block {
+        margin-bottom: 20px;
+        overflow: hidden;
+
+        &:not(.active) {
+            &:hover {
+                .collapsible-block-title {
+                    background-color: darken(@panel__background-color, 10%);
+                }
+            }
+        }
+
+        &-title {
+            padding: 20px 25px;
+            font-weight: @font-weight__bold;
+            .lib-font-size(20);
+            cursor: pointer;
+            background-color: @panel__background-color;
+            color: @color-black;
+        }
+
+        &-content-inner {
+            padding: 25px;
+            border: 1px solid @panel__background-color;
+        }
+    }
+}
