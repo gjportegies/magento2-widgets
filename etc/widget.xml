@@ -317,6 +317,10 @@
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
                 <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
             </parameter>
+
+            <parameter name="_safeFields" xsi:type="text" visible="false">
+                <value>bannersFooter</value>
+            </parameter>
         </parameters>
     </widget>
 
@@ -500,6 +504,10 @@
             <parameter name="link4URL" xsi:type="text">
                 <label>Link 4 URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+
+            <parameter name="_safeFields" xsi:type="text" visible="false">
+                <value>description</value>
             </parameter>
         </parameters>
     </widget>
@@ -994,6 +1002,10 @@
 
             <parameter name="cssClass" xsi:type="text">
                 <label>Css Class</label>
+            </parameter>
+
+            <parameter name="_safeFields" xsi:type="text" visible="false">
+                <value>blockContent</value>
             </parameter>
         </parameters>
     </widget>

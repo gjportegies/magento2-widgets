@@ -7,9 +7,10 @@
 namespace SR\Widgets\Block\Widget;
 
 use Magento\Framework\View\Element\Template;
-use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\View\Element\Template\Context;
+use Magento\Widget\Block\BlockInterface;
 use SR\Widgets\Helper\Data;
+use SR\Widgets\Helper\EncodingData;
 
 /**
  * Class AbstractWidget
@@ -23,17 +24,57 @@ abstract class AbstractWidget extends Template implements BlockInterface
     protected $helper;
 
     /**
+     * @var EncodingData
+     */
+    protected $encodingDataHelper;
+
+    /**
      * @param Context $context
      * @param Data $helper
+     * @param EncodingData $encodingDataHelper
      * @param array $data
      */
     public function __construct(
         Context $context,
         Data $helper,
+        EncodingData $encodingDataHelper,
         array $data = []
     ) {
         $this->helper = $helper;
+        $this->encodingDataHelper = $encodingDataHelper;
         parent::__construct($context, $data);
+    }
+
+    /**
+     * Object data getter (for data that may be encoded)
+     *
+     * @param string $key
+     * @param string|int $index
+     * @return string|array
+     */
+    public function getData($key = '', $index = null)
+    {
+        $widgetParams = $this->_data;
+
+        if ('' === $key) {
+            $data = $this->encodingDataHelper->decodeArray($widgetParams);
+
+            foreach ($data as $key => $value) {
+                $data[$key] = $this->helper->getWysiwygMedia($value);
+            }
+
+            return $data;
+        }
+
+        $data = parent::getData($key, $index);
+
+        if (isset($widgetParams[$key])) {
+            $data = $this->encodingDataHelper->decodeParam($widgetParams, $key);
+        }
+
+        $data = $this->helper->getWysiwygMedia($data);
+
+        return $data;
     }
 
     /**
@@ -54,7 +95,7 @@ abstract class AbstractWidget extends Template implements BlockInterface
      * Return widget param as css style declaration
      *
      * @param string $widgetParamName
-     * @param Template $widget|null
+     * @param Template $widget | null
      * @return string
      */
     public function getCssStyleDeclaration($widgetParamName, Template $widget = null)

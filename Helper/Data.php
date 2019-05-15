@@ -6,13 +6,14 @@
 
 namespace SR\Widgets\Helper;
 
+use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\UrlInterface;
+use Magento\Store\Model\Information;
+use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\UrlInterface;
-use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
 {
@@ -41,14 +42,16 @@ class Data extends AbstractHelper
 
     /**
      * @return string
-     * @throws NoSuchEntityException If given store doesn't exist.
      */
     public function getMediaBaseDirectory()
     {
         /**
          * @var Store $store
          */
-        $store = $this->_storeManager->getStore();
+        try {
+            $store = $this->_storeManager->getStore();
+        } catch (NoSuchEntityException $e) {
+        }
         return $store->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
     }
 
@@ -71,7 +74,7 @@ class Data extends AbstractHelper
      */
     public function getStoreName()
     {
-        return $this->getConfigValue('general/store_information/name');
+        return $this->getConfigValue(Information::XML_PATH_STORE_INFO_NAME);
     }
 
     /**
@@ -82,5 +85,18 @@ class Data extends AbstractHelper
     public function getSimpleImageAlt()
     {
         return $this->getStoreName() . ' ' . __('design image');
+    }
+
+    /**
+     * @param string $data
+     * @return string
+     */
+    public function getWysiwygMedia($data)
+    {
+        if (!(strpos($data, '{{media url=') !== false)) return $data;
+
+        $mediaDir = $this->getMediaBaseDirectory();
+        $htmlDecodedData = htmlspecialchars_decode($data);
+        return str_replace(['{{media url="', '"}}'], [$mediaDir, ''], $htmlDecodedData);
     }
 }

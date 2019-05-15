@@ -12,6 +12,10 @@
     <type name="Magento\Framework\File\Uploader">
         <plugin name="SR_Widgets::upload_plugin" type="SR\Widgets\Plugin\UploadPlugin"/>
     </type>
+    <preference for="Magento\Widget\Controller\Adminhtml\Widget\BuildWidget"
+                type="SR\Widgets\Controller\Adminhtml\Widget\BuildWidgetPlugin"/>
+    <preference for="Magento\Widget\Controller\Adminhtml\Widget\LoadOptions"
+                type="SR\Widgets\Controller\Adminhtml\Widget\LoadOptionsPlugin"/>
     <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
         <arguments>
             <argument name="extensions" xsi:type="array">
