@@ -28,6 +28,7 @@ class Banners extends AbstractWidget
                 'title' => $this->getData('banner' . $i . 'Title'),
                 'link_label' => $this->getData('banner' . $i . 'LinkLabel'),
                 'link_address' => $this->getData('banner' . $i . 'LinkURL'),
+                'link_open_link_in_new_tab' => $this->getData('banner' . $i . 'LinkOpenLinkInNewTab'),
                 'image_path' => $this->getData('banner' . $i . 'ImagePath')
             ];
         }

@@ -25,6 +25,7 @@ $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
 $primaryBannerTitle = $block->getData('primaryBannerTitle');
 $primaryBannerLinkLabel = $block->getData('primaryBannerLinkLabel');
 $primaryBannerLinkURL = $block->getData('primaryBannerLinkURL');
+$primaryBannerLinkOpenLinkInNewTab = $block->getData('primaryBannerLinkOpenLinkInNewTab');
 $primaryBannerImagePath = $block->getMedia($block->getData('primaryBannerImagePath'));
 
 $banners = $block->getItems();
@@ -47,32 +48,35 @@ $sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderCon
             </strong>
         <?php endif; ?>
         <?php if ($block->hasPrimaryBanner()): ?>
+            <?php $linkAttrs = $primaryBannerLinkOpenLinkInNewTab ? 'target="_blank"' : '' ?>
             <div class="banners-primary-banner">
-                <a href="<?= $primaryBannerLinkURL ?>" class="banners-primary-banner-link" title="<?= $primaryBannerTitle ?>">
+                <a href="<?= $primaryBannerLinkURL ?>" class="banners-primary-banner-link"
+                   title="<?= $primaryBannerTitle ?>" <?= $linkAttrs ?>>
                     <img src="<?= $primaryBannerImagePath ?>" class="banners-primary-banner-image" alt="<?= $primaryBannerTitle ?>"/>
                     <span class="banners-primary-banner-content">
-                    <?php if ($primaryBannerTitle): ?>
-                        <strong class="banners-primary-banner-title">
-                            <?= $primaryBannerTitle ?>
-                        </strong>
-                    <?php endif; ?>
+                        <?php if ($primaryBannerTitle): ?>
+                            <strong class="banners-primary-banner-title">
+                                <?= $primaryBannerTitle ?>
+                            </strong>
+                        <?php endif; ?>
                         <?php if ($primaryBannerLinkLabel): ?>
                             <span class="banners-primary-banner-link-label">
-                            <?= $primaryBannerLinkLabel ?>
-                        </span>
+                                <?= $primaryBannerLinkLabel ?>
+                            </span>
                         <?php endif; ?>
-                </span>
+                    </span>
                 </a>
             </div>
         <?php endif; ?>
         <ul class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridRowClasses ?> <?= $bannersSliderCssClass ?>">
             <?php foreach ($banners as $banner): ?>
+                <?php $linkAttrs = $banner['link_open_link_in_new_tab'] ? 'target="_blank"' : '' ?>
                 <li class="<?= $bannersGridColumnClasses ?>">
                     <div class="banners-item">
                         <?php if ($banner['image_path']): ?>
                             <?php if ($banner['link_address']): ?>
                                 <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-image-container"
-                                title="<?= $banner['link_label'] ?>">
+                                title="<?= $banner['link_label'] ?>" <?= $linkAttrs ?>>
                             <?php endif; ?>
                             <img src="<?= $block->getMedia($banner['image_path']); ?>" class="banners-item-image"
                                  alt="<?= $banner['link_label'] ?>">
@@ -90,7 +94,9 @@ $sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderCon
                                 <?php endif; ?>
 
                                 <?php if ($banner['link_label'] && $banner['link_address']): ?>
-                                    <a href="<?= $block->getUrl() . $banner['link_address'] ?>" class="banners-item-link" title="<?= $banner['title'] ?>">
+                                    <a href="<?= $block->getUrl() . $banner['link_address'] ?>"
+                                       class="banners-item-link"
+                                       title="<?= $banner['title'] ?>" <?= $linkAttrs ?>>
                                         <span><?= $banner['link_label'] ?></span>
                                     </a>
                                 <?php endif; ?>

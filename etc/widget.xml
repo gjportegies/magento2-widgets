@@ -163,6 +163,11 @@
                 <label>Primary Banner Link URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="primaryBannerLinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Primary Banner Open Link In New Tab</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="primaryBannerImagePath" xsi:type="block">
                 <label>Primary Banner Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -179,6 +184,11 @@
             </parameter>
             <parameter name="banner1LinkURL" xsi:type="text">
                 <label>Banner 1 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="banner1LinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Banner 1 Open Link In New Tab</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner1ImagePath" xsi:type="block">
@@ -199,6 +209,11 @@
                 <label>Banner 2 Link URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="banner2LinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Banner 2 Open Link In New Tab</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="banner2ImagePath" xsi:type="block">
                 <label>Banner 2 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -215,6 +230,11 @@
             </parameter>
             <parameter name="banner3LinkURL" xsi:type="text">
                 <label>Banner 3 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="banner3LinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Banner 3 Open Link In New Tab</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner3ImagePath" xsi:type="block">
@@ -235,6 +255,11 @@
                 <label>Banner 4 Link URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="banner4LinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Banner 4 Open Link In New Tab</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="banner4ImagePath" xsi:type="block">
                 <label>Banner 4 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -253,6 +278,11 @@
                 <label>Banner 5 Link URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="banner5LinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Banner 5 Open Link In New Tab</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="banner5ImagePath" xsi:type="block">
                 <label>Banner 5 Image</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -269,6 +299,11 @@
             </parameter>
             <parameter name="banner6LinkURL" xsi:type="text">
                 <label>Banner 6 Link URL</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="banner6LinkOpenLinkInNewTab" xsi:type="select"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Banner 6 Open Link In New Tab</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner6ImagePath" xsi:type="block">
