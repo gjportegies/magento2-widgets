@@ -151,8 +151,18 @@
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
+            <parameter name="bannersHeader" xsi:type="block">
+                <label>Banners Header Content</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
+            </parameter>
+
             <parameter name="primaryBannerTitle" xsi:type="text">
                 <label>Primary Banner Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="primaryBannerDescription" xsi:type="text">
+                <label>Primary Banner Description</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="primaryBannerLinkLabel" xsi:type="text">
@@ -178,6 +188,10 @@
                 <label>Banner 1 Title</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="banner1Description" xsi:type="text">
+                <label>Banner 1 Description</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="banner1LinkLabel" xsi:type="text">
                 <label>Banner 1 Link Label</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -199,6 +213,10 @@
 
             <parameter name="banner2Title" xsi:type="text">
                 <label>Banner 2 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="banner2Description" xsi:type="text">
+                <label>Banner 2 Description</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner2LinkLabel" xsi:type="text">
@@ -224,6 +242,10 @@
                 <label>Banner 3 Title</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="banner3Description" xsi:type="text">
+                <label>Banner 3 Description</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="banner3LinkLabel" xsi:type="text">
                 <label>Banner 3 Link Label</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -245,6 +267,10 @@
 
             <parameter name="banner4Title" xsi:type="text">
                 <label>Banner 4 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="banner4Description" xsi:type="text">
+                <label>Banner 4 Description</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner4LinkLabel" xsi:type="text">
@@ -270,6 +296,10 @@
                 <label>Banner 5 Title</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
+            <parameter name="banner5Description" xsi:type="text">
+                <label>Banner 5 Description</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
             <parameter name="banner5LinkLabel" xsi:type="text">
                 <label>Banner 5 Link Label</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
@@ -291,6 +321,10 @@
 
             <parameter name="banner6Title" xsi:type="text">
                 <label>Banner 6 Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="banner6Description" xsi:type="text">
+                <label>Banner 6 Description</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="banner6LinkLabel" xsi:type="text">
@@ -319,7 +353,7 @@
             </parameter>
 
             <parameter name="_safeFields" xsi:type="text" visible="false">
-                <value>bannersFooter</value>
+                <value>bannersHeader, bannersFooter</value>
             </parameter>
         </parameters>
     </widget>
@@ -672,6 +706,19 @@
                 <block class="SR\Widgets\Block\Adminhtml\Widget\Switcher"/>
             </parameter>
 
+            <parameter name="isSlider" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label>Enable slider</label>
+                <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
+            </parameter>
+            <parameter name="sliderConfig" xsi:type="block">
+                <label>Slider Config</label>
+                <description>
+                    <![CDATA[
+                        <hidden data-section-scope="design"/>
+                    ]]>
+                </description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\FieldTextarea"/>
+            </parameter>
             <parameter name="isFullWidth" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label>Full width widget</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>

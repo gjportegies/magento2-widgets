@@ -19,6 +19,7 @@ class Banners extends AbstractWidget
 
         for ($i = 1; ; $i++) {
             if (!$this->getData('banner' . $i . 'Title') &&
+                !$this->getData('banner' . $i . 'LinkDescription') &&
                 !$this->getData('banner' . $i . 'LinkLabel') &&
                 !$this->getData('banner' . $i . 'ImagePath')) {
                 break;
@@ -26,6 +27,7 @@ class Banners extends AbstractWidget
 
             $banners[$i - 1] = [
                 'title' => $this->getData('banner' . $i . 'Title'),
+                'description' => $this->getData('banner' . $i . 'Description'),
                 'link_label' => $this->getData('banner' . $i . 'LinkLabel'),
                 'link_address' => $this->getData('banner' . $i . 'LinkURL'),
                 'link_open_link_in_new_tab' => $this->getData('banner' . $i . 'LinkOpenLinkInNewTab'),

@@ -19,6 +19,9 @@ $widgetCssClass .= $this->getData('isFullWidth') ? ' full-width ' : '';
 $widgetCssClass .= $this->getData('cssClass');
 $widgetTitle = $block->getData('widgetTitle');
 $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
+
+$isSlider = $this->getData('isSlider');
+$sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderConfig') . '}' : '{}';
 ?>
 
 <?php include($block->getTemplateFile('SR_Widgets::widget/widget_base_styles.phtml')) ?>
@@ -28,3 +31,21 @@ $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
         <?php include($block->getTemplateFile('SR_Widgets::widget/product/content/grid.phtml')) ?>
     </div>
 </div>
+
+<?php if ($isSlider): ?>
+    <?php include($block->getTemplateFile('SR_Widgets::widget/slider_assets_loader.phtml')) ?>
+
+    <script>
+        require([
+            'jquery',
+            'owlCarousel2'
+        ], function ($) {
+            $(document).ready(function () {
+                var $slider = $('.<?= $widgetId ?> .product-items');
+                $slider.addClass('owl-carousel');
+
+                $('.<?= $widgetId ?> .owl-carousel').owlCarousel(<?= $sliderConfig ?>);
+            });
+        });
+    </script>
+<?php endif; ?>
