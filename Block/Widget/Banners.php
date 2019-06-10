@@ -43,8 +43,10 @@ class Banners extends AbstractWidget
      */
     public function hasPrimaryBanner()
     {
-        return $this->getData('primaryBannerLinkLabel') &&
-            $this->getData('primaryBannerLinkURL') &&
+        return
+            $this->getData('primaryBannerTitle') ||
+            $this->getData('primaryBannerDescription') ||
+            ($this->getData('primaryBannerLinkLabel') && $this->getData('primaryBannerLinkURL')) ||
             $this->getData('primaryBannerImagePath');
     }
 
