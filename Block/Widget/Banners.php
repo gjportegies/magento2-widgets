@@ -51,6 +51,17 @@ class Banners extends AbstractWidget
     }
 
     /**
+     * @param $banner array
+     * 
+     * @return bool
+     */
+    public function hasBannerTextContent($banner)
+    {
+        return $banner['title'] || ($banner['link_label'] && $banner['link_address']);
+
+    }
+
+    /**
      * Return amount of non empty items
      *
      * @return number
