@@ -25,7 +25,8 @@ $primaryBannerHasLink = $primaryBannerLinkLabel && $primaryBannerLinkURL;
 
 <div class="banners-primary-banner">
     <?php if ($primaryBannerHasLink): ?>
-        <a href="<?= $primaryBannerLinkURL ?>" class="banners-primary-banner-image-container" title="<?= $primaryBannerTitle ?>" <?= $primaryBannerLinkAttrs ?>>
+        <a href="<?= $block->_getUrl($primaryBannerLinkURL) ?>" class="banners-primary-banner-image-container"
+           title="<?= $primaryBannerTitle ?>" <?= $primaryBannerLinkAttrs ?>>
     <?php else: ?>
         <div class="banners-primary-banner-image-container">
     <?php endif; ?>
@@ -43,7 +44,7 @@ $primaryBannerHasLink = $primaryBannerLinkLabel && $primaryBannerLinkURL;
             <p class="banners-primary-banner-description"><?= $primaryBannerDescription ?></p>
         <?php endif; ?>
         <?php if ($primaryBannerHasLink): ?>
-            <a href="<?= $primaryBannerLinkURL ?>" class="banners-primary-banner-link" <?= $primaryBannerLinkAttrs ?>>
+            <a href="<?= $block->_getUrl($primaryBannerLinkURL) ?>" class="banners-primary-banner-link" <?= $primaryBannerLinkAttrs ?>>
                 <span><?= $primaryBannerLinkLabel ?></span>
             </a>
         <?php endif; ?>

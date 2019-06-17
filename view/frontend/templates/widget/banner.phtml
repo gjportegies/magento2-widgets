@@ -38,7 +38,7 @@ $bannerCssClass .= !$block->hasContent() ? 'no-content ' : '';
     <div class="banner-container container">
         <?php if ($bannerType === 'image-link'): ?>
             <?php if ($this->getData('imageUrlDesktop')): ?>
-                <a href="<?= $block->getUrl() . $links[0]['target'] ?>" class="<?= $bannerType ?>">
+                <a href="<?= $block->_getUrl($links[0]['target']) ?>" class="<?= $bannerType ?>">
                     <?php if ($this->getData('imageUrlMobile')): ?>
                         <img src="<?= $imageUrlDesktop ?>" class="banner-image desktop" alt="<?= $imageAlt ?>">
                         <img src="<?= $imageUrlMobile ?>" class="banner-image mobile" alt="<?= $imageAlt ?>">
@@ -74,7 +74,7 @@ $bannerCssClass .= !$block->hasContent() ? 'no-content ' : '';
                             <?php foreach ($links as $link): ?>
                                 <?php if ($link['label'] && $link['target']): ?>
                                     <li class="banner-link-container">
-                                        <a href="<?= $block->getUrl() . $link['target'] ?>" class="banner-link">
+                                        <a href="<?= $block->_getUrl($link['target']) ?>" class="banner-link">
                                             <span><?= $link['label'] ?></span>
                                         </a>
                                     </li>

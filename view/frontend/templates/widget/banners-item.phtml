@@ -10,6 +10,8 @@ use SR\Widgets\Block\Widget\Banners;
 
 /**
  * @var Banners $block
+ * @var array $banner
+ * @var string $bannersGridColumnClasses
  */
 ?>
 <?php
@@ -24,7 +26,7 @@ $linkAttrs = $banner['link_open_link_in_new_tab'] ? 'target="_blank"' : '';
     <div class="banners-item">
         <?php if ($imagePath): ?>
             <?php if ($linkAddress): ?>
-                <a href="<?= $block->getUrl() . $linkAddress ?>" class="banners-item-image-container" title="<?= $linkLabel ?>" <?= $linkAttrs ?>>
+                <a href="<?= $block->_getUrl($linkAddress) ?>" class="banners-item-image-container" title="<?= $linkLabel ?>" <?= $linkAttrs ?>>
             <?php else: ?>
                 <div class="banners-item-image-container">
             <?php endif; ?>
@@ -51,7 +53,7 @@ $linkAttrs = $banner['link_open_link_in_new_tab'] ? 'target="_blank"' : '';
                 <?php endif; ?>
 
                 <?php if ($linkLabel && $linkAddress): ?>
-                    <a href="<?= $block->getUrl() . $linkAddress ?>" class="banners-item-link" title="<?= $title ?>" <?= $linkAttrs ?>>
+                    <a href="<?= $block->_getUrl($linkAddress) ?>" class="banners-item-link" title="<?= $title ?>" <?= $linkAttrs ?>>
                         <span><?= $linkLabel ?></span>
                     </a>
                 <?php endif; ?>

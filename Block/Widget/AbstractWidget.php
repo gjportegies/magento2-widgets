@@ -92,6 +92,30 @@ abstract class AbstractWidget extends Template implements BlockInterface
     }
 
     /**
+     * @param string $url
+     * @return string
+     */
+    public function _getUrl($url)
+    {
+        if ($this->getIsExternalUrl($url)) {
+            return $url;
+        }
+        return $this->getUrl() . $url;
+    }
+
+    /**
+     * @param string $url
+     * @return bool
+     */
+    public function getIsExternalUrl($url)
+    {
+        $isHttp = strpos($url, 'http://') === 0;
+        $isHttps = strpos($url, 'https://') === 0;
+
+        return $isHttp || $isHttps;
+    }
+
+    /**
      * Return widget param as css style declaration
      *
      * @param string $widgetParamName
