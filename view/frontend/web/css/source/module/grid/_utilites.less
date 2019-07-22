@@ -7,7 +7,10 @@
 .make-grid-columns-base(@column-number: 1) when (@column-number =< @grid-columns-amount) {
     [class*="page-layout"] .block.widget .products-grid .product-item.col-@{column-number},
     .col-@{column-number} {
-        width: (100% / @grid-columns-amount * @column-number);
+        @width: 100% / @grid-columns-amount * @column-number;
+        width: @width;
+        max-width: @width;
+        flex: 0 0 @width;
     }
 
     .make-grid-columns-base((@column-number + 1));
@@ -17,7 +20,10 @@
 .grid-columns-responsive(@breakpoint-name; @column-number: 1) when (@column-number =< @grid-columns-amount) {
     [class*="page-layout"] .block.widget .products-grid .product-item.col-@{breakpoint-name}-@{column-number},
     .col-@{breakpoint-name}-@{column-number} {
-        width: (100% / @grid-columns-amount * @column-number);
+        @width: 100% / @grid-columns-amount * @column-number;
+        width: @width;
+        max-width: @width;
+        flex: 0 0 @width;
     }
 
     .grid-columns-responsive(@breakpoint-name, (@column-number + 1));
