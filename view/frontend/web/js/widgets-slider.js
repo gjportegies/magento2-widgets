@@ -17,6 +17,8 @@ define([
             $slidesHtml = '',
             $slidesStylesHtml = '';
 
+        if ($widgets.length === 0) return;
+
         $widgets.each(function () {
             var $widget = $(this),
                 $widgetHtml = $widget[0].outerHTML,
