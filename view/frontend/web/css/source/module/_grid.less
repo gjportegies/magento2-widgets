@@ -15,11 +15,10 @@
         margin-left: -@grid-gutter;
         margin-right: -@grid-gutter;
 
-        @supports (display: flex) or (display: -webkit-flex) {
-            &:before,
-            &:after {
-                display: none;
-            }
+        &:before,
+        &:after {
+            width: 100%;
+            height: 0;
         }
 
         &.owl-carousel {
