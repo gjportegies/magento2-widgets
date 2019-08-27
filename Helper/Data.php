@@ -14,6 +14,7 @@ use Magento\Store\Model\Information;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\View\Asset\Minification;
 
 class Data extends AbstractHelper
 {
@@ -28,15 +29,24 @@ class Data extends AbstractHelper
     protected $_scopeConfigInterface;
 
     /**
+     * @var Minification
+     */
+    protected $minification;
+
+    /**
+     * Data constructor.
      * @param Context $context
      * @param StoreManagerInterface $storeManager
+     * @param Minification $minification
      */
     public function __construct(
         Context $context,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        Minification $minification
     ) {
         $this->_scopeConfigInterface = $context->getScopeConfig();
         $this->_storeManager = $storeManager;
+        $this->minification = $minification;
         parent::__construct($context);
     }
 
@@ -98,5 +108,14 @@ class Data extends AbstractHelper
         $mediaDir = $this->getMediaBaseDirectory();
         $htmlDecodedData = htmlspecialchars_decode($data);
         return str_replace(['{{media url="', '"}}'], [$mediaDir, ''], $htmlDecodedData);
+    }
+
+    /**
+     * @param string $fileType
+     * @return bool
+     */
+    public function isMinificationEnabled($fileType = 'css')
+    {
+        return $this->minification->isEnabled($fileType);
     }
 }

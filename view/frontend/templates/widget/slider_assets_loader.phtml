@@ -7,13 +7,17 @@
 <?php
 
 use SR\Widgets\Block\Widget\AbstractWidget;
+use SR\Widgets\Helper\Data as DataHelper;
 
 /**
  * @var AbstractWidget $block
+ * @var DataHelper $helper
  */
 ?>
 <?php
+$helper = $this->helper(DataHelper::class);
 $moduleStaticDirUrl = $block->getViewFileUrl('') . DIRECTORY_SEPARATOR . $block->getModuleName() . DIRECTORY_SEPARATOR;
+$minPrefix = $helper->isMinificationEnabled() ? '.min' : '';
 ?>
 
 <script>
@@ -23,8 +27,8 @@ $moduleStaticDirUrl = $block->getViewFileUrl('') . DIRECTORY_SEPARATOR . $block-
         /* If FE theme doesn't include slider styles will be used slider styles from the module */
 
         var REQUIRED_ASSETS = [
-            'OwlCarousel2/assets/owl.carousel.css',
-            'OwlCarousel2/assets/owl.theme.default.css'
+            'OwlCarousel2/assets/owl.carousel<?= $minPrefix ?>.css',
+            'OwlCarousel2/assets/owl.theme.default<?= $minPrefix ?>.css'
         ];
 
         $.each(REQUIRED_ASSETS, function (i, assetPath) {
