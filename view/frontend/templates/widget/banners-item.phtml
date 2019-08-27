@@ -22,7 +22,7 @@ $linkLabel = $banner['link_label'];
 $linkAttrs = $banner['link_open_link_in_new_tab'] ? 'target="_blank"' : '';
 ?>
 
-<li class="banners-item-container <?= $bannersGridColumnClasses ?>">
+<div class="banners-item-container <?= $bannersGridColumnClasses ?>">
     <div class="banners-item">
         <?php if ($imagePath): ?>
             <?php if ($linkAddress): ?>
@@ -60,4 +60,4 @@ $linkAttrs = $banner['link_open_link_in_new_tab'] ? 'target="_blank"' : '';
             </div>
         <?php endif; ?>
     </div>
-</li>
+</div>

@@ -51,11 +51,11 @@ $sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderCon
             <?php include($block->getTemplateFile('SR_Widgets::widget/banners-primary-banner.phtml')) ?>
         <?php endif; ?>
 
-        <ul class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridColumnClasses ? $bannersGridRowClasses : '' ?> <?= $bannersSliderCssClass ?>">
+        <div class="banners banners-<?= $bannersAmount ?>-items <?= $bannersGridColumnClasses ? $bannersGridRowClasses : '' ?> <?= $bannersSliderCssClass ?>">
             <?php foreach ($banners as $banner): ?>
                 <?php include($block->getTemplateFile('SR_Widgets::widget/banners-item.phtml')) ?>
             <?php endforeach; ?>
-        </ul>
+        </div>
 
         <?php if ($bannersFooter): ?>
             <div class="banners-footer"><?= html_entity_decode($bannersFooter) ?></div>
