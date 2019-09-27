@@ -30,7 +30,11 @@ $linkAttrs = $banner['link_open_link_in_new_tab'] ? 'target="_blank"' : '';
             <?php else: ?>
                 <div class="banners-item-image-container">
             <?php endif; ?>
-                    <img src="<?= $block->getMedia($imagePath); ?>" class="banners-item-image" alt="<?= $linkLabel ?: $title ?>">
+            <?php if ($this->getData('isSlider')): ?>
+                <img data-src="<?= $block->getMedia($imagePath); ?>" class="banners-item-image owl-lazy" alt="<?= $linkLabel ?: $title ?>">
+            <?php else: ?>
+                <img src="<?= $block->getMedia($imagePath); ?>" class="banners-item-image" alt="<?= $linkLabel ?: $title ?>">
+            <?php endif; ?>
             <?php if ($linkAddress): ?>
                 </a>
             <?php else: ?>
