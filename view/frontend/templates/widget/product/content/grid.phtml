@@ -31,7 +31,7 @@ use Magento\Framework\App\Action\Action;
 
     $productsTextLabels = explode(',', $this->getData('productsTextLabels'));
     $productsListGridColumnClasses = $this->getData('gridClasses');
-    $productItemCssClass = 'product-item ' . $productsListGridColumnClasses;
+    $productItemCssClass = 'product-item sr-widget-col ' . $productsListGridColumnClasses;
     ?>
     <div class="block widget block-products-list <?= /* @noEscape */ $mode ?>">
         <?php if ($block->getTitle()): ?>
@@ -42,7 +42,7 @@ use Magento\Framework\App\Action\Action;
         <div class="block-content">
             <?= /* @noEscape */ '<!-- ' . $image . '-->' ?>
             <div class="products-<?= /* @noEscape */ $mode ?> <?= /* @noEscape */ $mode ?>">
-                <ol class="product-items widget-row <?= /* @noEscape */ $type ?>">
+                <ol class="product-items row sr-widget-row <?= /* @noEscape */ $type ?>">
                     <?php $iterator = 1; ?>
                     <?php foreach ($items as $_item): ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="' . $productItemCssClass . '">' : '</li><li class="' . $productItemCssClass . '">' ?>

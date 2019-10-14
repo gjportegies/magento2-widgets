@@ -4,40 +4,42 @@
 //  */
 
 // Generates base column classes (without screen size prefix)
-.make-grid-columns-base(@column-number: 1) when (@column-number =< @grid-columns-amount) {
-    [class*="page-layout"] .block.widget .products-grid .product-item.col-@{column-number},
-    .col-@{column-number} {
-        @width: 100% / @grid-columns-amount * @column-number;
-        width: @width;
-        max-width: @width;
-        flex: 0 0 @width;
+#sr-widgets {
+    .make-grid-columns-base(@column-number: 1) when (@column-number =< @sr-widgets__grid-columns-amount) {
+        [class*="page-layout"] .block.widget .products-grid .product-item.col-@{column-number},
+        .col-@{column-number}@{sr-widgets__grid-prefix-col} {
+            @width: 100% / @sr-widgets__grid-columns-amount * @column-number;
+            width: @width;
+            max-width: @width;
+            flex: 0 0 @width;
+        }
+
+        .make-grid-columns-base((@column-number + 1));
     }
 
-    .make-grid-columns-base((@column-number + 1));
-}
+    // Generates responsive column classes (with screen size prefix)
+    .grid-columns-responsive(@breakpoint-name; @column-number: 1) when (@column-number =< @sr-widgets__grid-columns-amount) {
+        [class*="page-layout"] .block.widget .products-grid .product-item.col-@{breakpoint-name}-@{column-number},
+        .col-@{breakpoint-name}-@{column-number}@{sr-widgets__grid-prefix-col} {
+            @width: 100% / @sr-widgets__grid-columns-amount * @column-number;
+            width: @width;
+            max-width: @width;
+            flex: 0 0 @width;
+        }
 
-// Generates responsive column classes (with screen size prefix)
-.grid-columns-responsive(@breakpoint-name; @column-number: 1) when (@column-number =< @grid-columns-amount) {
-    [class*="page-layout"] .block.widget .products-grid .product-item.col-@{breakpoint-name}-@{column-number},
-    .col-@{breakpoint-name}-@{column-number} {
-        @width: 100% / @grid-columns-amount * @column-number;
-        width: @width;
-        max-width: @width;
-        flex: 0 0 @width;
+        .grid-columns-responsive(@breakpoint-name, (@column-number + 1));
     }
 
-    .grid-columns-responsive(@breakpoint-name, (@column-number + 1));
-}
+    // Generates media queries with columns inside according to screen breakpoints
+    .make-grid-columns-responsive(@current-breakpoint: length(@sr-widgets__grid-breakpoints)) when (@current-breakpoint > 0) {
+        .make-grid-columns-responsive(@current-breakpoint - 1);
 
-// Generates media queries with columns inside according to screen breakpoints
-.make-grid-columns-responsive(@current-breakpoint: length(@grid-breakpoints)) when (@current-breakpoint > 0) {
-    .make-grid-columns-responsive(@current-breakpoint - 1);
+        @breakpoint: extract(@sr-widgets__grid-breakpoints, @current-breakpoint);
+        @breakpoint-name: extract(@breakpoint, 1);
+        @breakpoint-value: extract(@breakpoint, 2);
 
-    @breakpoint: extract(@grid-breakpoints, @current-breakpoint);
-    @breakpoint-name: extract(@breakpoint, 1);
-    @breakpoint-value: extract(@breakpoint, 2);
-
-    @media (min-width: @breakpoint-value) {
-        .grid-columns-responsive(@breakpoint-name);
+        @media (min-width: @breakpoint-value) {
+            .grid-columns-responsive(@breakpoint-name);
+        }
     }
 }

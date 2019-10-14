@@ -3,17 +3,17 @@
 //  * See LICENSE.txt for license details.
 //  */
 
-& when (@media-common = true) {
-    @import 'grid/_variables.less';
-    @import 'grid/_utilites.less';
+@import 'grid/_variables.less';
+@import 'grid/_utilites.less';
 
-    .block.widget .products-grid .product-items.@{grid-prefix}row,
-    .@{grid-prefix}row {
+& when (@media-common = true) {
+    .block.widget .products-grid .product-items.row@{sr-widgets__grid-prefix-row},
+    .row@{sr-widgets__grid-prefix-row} {
         .lib-clearfix();
         .lib-vendor-prefix-display();
         .lib-vendor-prefix-flex-wrap();
-        margin-left: -@grid-gutter;
-        margin-right: -@grid-gutter;
+        margin-left: -@sr-widgets__grid-gutter;
+        margin-right: -@sr-widgets__grid-gutter;
 
         &:before,
         &:after {
@@ -27,17 +27,17 @@
         }
     }
 
-    [class*="col-"] {
+    [class*="col-"]@{sr-widgets__grid-prefix-col} {
         float: left;
         margin-left: 0;
         margin-right: 0;
-        padding-left: @grid-gutter;
-        padding-right: @grid-gutter;
+        padding-left: @sr-widgets__grid-gutter;
+        padding-right: @sr-widgets__grid-gutter;
         width: 100%;
         box-sizing: border-box;
     }
 
-    [class*="page-layout"] .block.widget .products-grid [class*="col-"].product-item {
+    [class*="page-layout"] .block.widget .products-grid [class*="col-"]@{sr-widgets__grid-prefix-col}.product-item {
         &,
         &:nth-child(3n + 1),
         &:nth-child(4n + 1),
@@ -46,14 +46,14 @@
         }
     }
 
-    .column.main [class*="col-"].product-item {
-        padding-left: @grid-gutter;
+    .column.main [class*="col-"]@{sr-widgets__grid-prefix-col}.product-item {
+        padding-left: @sr-widgets__grid-gutter;
     }
 
-    .block.widget .products-grid [class*="col-"].product-item {
+    .block.widget .products-grid [class*="col-"]@{sr-widgets__grid-prefix-col}.product-item {
         width: 100%;
     }
 
-    .make-grid-columns-base();
-    .make-grid-columns-responsive();
+    #sr-widgets .make-grid-columns-base();
+    #sr-widgets .make-grid-columns-responsive();
 }

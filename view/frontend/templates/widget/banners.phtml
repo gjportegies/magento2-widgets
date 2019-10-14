@@ -24,8 +24,8 @@ $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
 
 $banners = $block->getItems();
 $bannersAmount = $block->getItemsAmount();
-$bannersGridRowClasses = 'widget-row';
-$bannersGridColumnClasses = $this->getData('gridClasses');
+$bannersGridRowClasses = 'sr-widget-row';
+$bannersGridColumnClasses = 'sr-widget-col ' . $this->getData('gridClasses');
 $bannersSliderCssClass = $this->getData('isSlider') ? 'owl-carousel banners-slider' : '';
 $bannersHeader = $block->getData('bannersHeader');
 $bannersFooter = $block->getData('bannersFooter');
