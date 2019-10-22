@@ -881,7 +881,7 @@
                     <hidden data-section-scope="content"/>
                     List of products text labels separated by comma.
                     <br/>
-                    Example: rub., drop., vape.
+                    Example: Label 1, Label 2, Label 3
                     ]]>
                 </description>
             </parameter>
