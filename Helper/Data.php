@@ -98,15 +98,20 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @param string $data
+     * @param mixed $data
      * @return string
      */
     public function getWysiwygMedia($data)
     {
-        if (!(strpos($data, '{{media url=') !== false)) return $data;
+        if (!is_string($data)) return $data;
+
+        $hasImageDirective = strpos($data, '{{media url=') !== false;
+
+        if (!$hasImageDirective) return $data;
 
         $mediaDir = $this->getMediaBaseDirectory();
         $htmlDecodedData = htmlspecialchars_decode($data);
+
         return str_replace(['{{media url="', '"}}'], [$mediaDir, ''], $htmlDecodedData);
     }
 

@@ -857,6 +857,18 @@
                 <label>Conditions</label>
             </parameter>
 
+            <parameter name="widgetHeader" xsi:type="block">
+                <label>Widget Header Content</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
+            </parameter>
+
+            <parameter name="widgetFooter" xsi:type="block">
+                <label>Widget Footer Content</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+                <block class="SR\Widgets\Block\Adminhtml\Widget\Wysiwyg"/>
+            </parameter>
+
             <!--
             /**
              * SR-TODO: dirty solution
@@ -872,6 +884,10 @@
                     Example: rub., drop., vape.
                     ]]>
                 </description>
+            </parameter>
+
+            <parameter name="_safeFields" xsi:type="text" visible="false">
+                <value>widgetHeader, widgetFooter</value>
             </parameter>
         </parameters>
         <containers>

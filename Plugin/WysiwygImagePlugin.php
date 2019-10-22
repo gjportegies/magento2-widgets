@@ -40,6 +40,7 @@ class WysiwygImagePlugin
      * @param bool $renderAsTag
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function aroundGetImageHtmlDeclaration(
         WysiwygImageHelper $subject,

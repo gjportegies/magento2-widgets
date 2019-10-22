@@ -50,11 +50,14 @@ abstract class AbstractWidget extends Template implements BlockInterface
      *
      * @param string $key
      * @param string|int $index
+     * @param object|null $widget
      * @return string|array
      */
-    public function getData($key = '', $index = null)
+    public function getData($key = '', $index = null, $widget = null)
     {
-        $widgetParams = $this->_data;
+        $widget = $widget ?: $this;
+
+        $widgetParams = $widget->_data;
 
         if ('' === $key) {
             $data = $this->encodingDataHelper->decodeArray($widgetParams);

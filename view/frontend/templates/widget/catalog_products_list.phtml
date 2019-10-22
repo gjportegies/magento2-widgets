@@ -19,6 +19,8 @@ $widgetCssClass .= $this->getData('isFullWidth') ? ' full-width ' : '';
 $widgetCssClass .= $this->getData('cssClass');
 $widgetTitle = $block->getData('widgetTitle');
 $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
+$widgetHeader = $block->getData('widgetHeader');
+$widgetFooter = $block->getData('widgetFooter');
 
 $isSlider = $this->getData('isSlider');
 $sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderConfig') . '}' : '{}';
@@ -28,7 +30,15 @@ $sliderConfig = $this->getData('sliderConfig') ? '{' . $this->getData('sliderCon
 
 <div class="<?= $widgetCssClass ?>" data-widget-id="<?= $widgetId ?>">
     <div class="block-products-list-container container">
+        <?php if ($widgetHeader): ?>
+            <div class="banners-header"><?= html_entity_decode($widgetHeader) ?></div>
+        <?php endif; ?>
+
         <?php include($block->getTemplateFile('SR_Widgets::widget/product/content/grid.phtml')) ?>
+
+        <?php if ($widgetFooter): ?>
+            <div class="banners-footer"><?= html_entity_decode($widgetFooter) ?></div>
+        <?php endif; ?>
     </div>
 </div>
 
