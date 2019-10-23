@@ -15,6 +15,7 @@ use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Asset\Minification;
+use Magento\Cms\Model\Template\FilterProvider;
 
 class Data extends AbstractHelper
 {
@@ -34,6 +35,11 @@ class Data extends AbstractHelper
     protected $minification;
 
     /**
+     * @var \Magento\Cms\Model\Template\FilterProvider
+     */
+    protected $filterProvider;
+
+    /**
      * Data constructor.
      * @param Context $context
      * @param StoreManagerInterface $storeManager
@@ -42,11 +48,13 @@ class Data extends AbstractHelper
     public function __construct(
         Context $context,
         StoreManagerInterface $storeManager,
-        Minification $minification
+        Minification $minification,
+        FilterProvider $filterProvider
     ) {
         $this->_scopeConfigInterface = $context->getScopeConfig();
         $this->_storeManager = $storeManager;
         $this->minification = $minification;
+        $this->filterProvider = $filterProvider;
         parent::__construct($context);
     }
 
@@ -109,10 +117,28 @@ class Data extends AbstractHelper
 
         if (!$hasImageDirective) return $data;
 
+        /* SR-TODO: use filterProvider to decode directive (see getWysiwygStoreVariable()) */
+
         $mediaDir = $this->getMediaBaseDirectory();
         $htmlDecodedData = htmlspecialchars_decode($data);
 
         return str_replace(['{{media url="', '"}}'], [$mediaDir, ''], $htmlDecodedData);
+    }
+
+    /**
+     * @param string $data
+     * @return string
+     * @throws \Exception
+     */
+    public function getWysiwygStoreVariable($data)
+    {
+        if (!is_string($data)) return $data;
+
+        $hasStoreVariable = strpos($data, '{{config path=') !== false;
+
+        if (!$hasStoreVariable) return $data;
+
+        return $this->filterProvider->getPageFilter()->filter($data);
     }
 
     /**

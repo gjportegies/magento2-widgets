@@ -52,6 +52,7 @@ abstract class AbstractWidget extends Template implements BlockInterface
      * @param string|int $index
      * @param object|null $widget
      * @return string|array
+     * @throws \Exception
      */
     public function getData($key = '', $index = null, $widget = null)
     {
@@ -64,6 +65,7 @@ abstract class AbstractWidget extends Template implements BlockInterface
 
             foreach ($data as $key => $value) {
                 $data[$key] = $this->helper->getWysiwygMedia($value);
+                $data[$key] = $this->helper->getWysiwygStoreVariable($value);
             }
 
             return $data;
@@ -76,6 +78,7 @@ abstract class AbstractWidget extends Template implements BlockInterface
         }
 
         $data = $this->helper->getWysiwygMedia($data);
+        $data = $this->helper->getWysiwygStoreVariable($data);
 
         return $data;
     }
