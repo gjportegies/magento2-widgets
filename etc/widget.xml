@@ -354,10 +354,14 @@
 
             <parameter name="_safeFields" xsi:type="text" visible="false">
                 <value>
-                    bannersHeader, bannersFooter, primaryBannerTitle, primaryBannerDescription, primaryBannerLinkLabel,
-                    banner1Title, banner1Description, banner1LinkLabel, banner2Title, banner2Description, banner2LinkLabel,
-                    banner3Title, banner3Description, banner3LinkLabel, banner4Title, banner4Description, banner4LinkLabel,
-                    banner5Title, banner5Description, banner5LinkLabel, banner6Title, banner6Description, banner6LinkLabel
+                    bannersHeader, bannersFooter,
+                    primaryBannerTitle, primaryBannerDescription, primaryBannerLinkLabel, primaryBannerLinkURL,
+                    banner1Title, banner1Description, banner1LinkLabel, banner1LinkURL,
+                    banner2Title, banner2Description, banner2LinkLabel, banner2LinkURL,
+                    banner3Title, banner3Description, banner3LinkLabel, banner3LinkURL,
+                    banner4Title, banner4Description, banner4LinkLabel, banner4LinkURL,
+                    banner5Title, banner5Description, banner5LinkLabel, banner5LinkURL,
+                    banner6Title, banner6Description, banner6LinkLabel, banner6LinkURL
                 </value>
             </parameter>
         </parameters>
@@ -546,7 +550,7 @@
             </parameter>
 
             <parameter name="_safeFields" xsi:type="text" visible="false">
-                <value>title, description, imageAlt, link1Label, link2Label, link3Label, link4Label</value>
+                <value>title, description, imageAlt, link1Label, link1URL, link2Label, link2URL, link3Label, link3URL, link4Label, link4URL</value>
             </parameter>
         </parameters>
     </widget>

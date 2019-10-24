@@ -106,7 +106,8 @@ abstract class AbstractWidget extends Template implements BlockInterface
         if ($this->getIsExternalUrl($url)) {
             return $url;
         }
-        return $this->getUrl() . $url;
+
+        return $this->getProcessNonUrlLink($url) ?: $this->getUrl() . $url;
     }
 
     /**
@@ -122,11 +123,50 @@ abstract class AbstractWidget extends Template implements BlockInterface
     }
 
     /**
+     * @param string $url
+     * @return string|null
+     */
+    public function getProcessNonUrlLink($url)
+    {
+        $isTelephoneNumber = strpos($url, 'tel:') === 0;
+        $isMailAddress = strpos($url, 'mailto:') === 0;
+
+        if ($isTelephoneNumber) {
+            return $this->getProcessedTelLink($url);
+        }
+
+        if ($isMailAddress) {
+            return $this->getProcessedMailLink($url);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string $link
+     * @return string
+     */
+    public function getProcessedTelLink($link)
+    {
+        return str_replace([' ', '-', '.', ',', '(', ')'], [''], $link);
+    }
+
+    /**
+     * @param string $link
+     * @return string
+     */
+    public function getProcessedMailLink($link)
+    {
+        return $link;
+    }
+
+    /**
      * Return widget param as css style declaration
      *
      * @param string $widgetParamName
      * @param Template $widget | null
      * @return string
+     * @throws \Exception
      */
     public function getCssStyleDeclaration($widgetParamName, Template $widget = null)
     {
