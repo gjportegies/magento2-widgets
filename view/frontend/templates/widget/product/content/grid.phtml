@@ -36,7 +36,13 @@ use Magento\Framework\App\Action\Action;
     <div class="block widget block-products-list <?= /* @noEscape */ $mode ?>">
         <?php if ($block->getTitle()): ?>
             <div class="block-title">
-                <strong><?= $block->escapeHtml(__($block->getTitle())) ?></strong>
+                <?php if ($titleURL): ?>
+                    <a href="<?= $titleURLAddress ?>" class="block-title-link">
+                <?php endif ?>
+                        <strong><?= $block->escapeHtml(__($block->getTitle())) ?></strong>
+                <?php if ($titleURL): ?>
+                    </a>
+                <?php endif ?>
             </div>
         <?php endif ?>
         <div class="block-content">

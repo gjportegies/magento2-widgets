@@ -18,6 +18,7 @@ $widgetCssClass = 'widget ' . $widgetId . ' ';
 $widgetCssClass .= $this->getData('isFullWidth') ? ' full-width ' : '';
 $widgetCssClass .= $this->getData('cssClass');
 $widgetTitle = $block->getData('widgetTitle');
+$widgetTitleURL = $block->getData('widgetTitleURL');
 $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
 $widgetType = $this->getData('widgetType');
 $widgetBlockInit = null;
@@ -42,9 +43,15 @@ if ($widgetType === 'collapsible_blocks_container') {
 <div class="<?= $widgetCssClass ?>" data-widget-id="<?= $widgetId ?>">
     <div class="block-static-block-container container" <?= $widgetBlockInit ?>>
         <?php if ($widgetTitle): ?>
-            <strong class="static-block-title">
-                <span><?= $widgetTitle ?></span>
-            </strong>
+            <?php if ($widgetTitleURL): ?>
+                <a href="<?= $block->_getUrl($widgetTitleURL) ?>" class="static-block-title-link">
+            <?php endif ?>
+                    <strong class="static-block-title">
+                        <span><?= $widgetTitle ?></span>
+                    </strong>
+            <?php if ($widgetTitleURL): ?>
+                </a>
+            <?php endif ?>
         <?php endif; ?>
         <?php include($block->getTemplateFile('SR_Widgets::widget/static_block/default.phtml')) ?>
     </div>

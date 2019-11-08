@@ -20,6 +20,7 @@ $widgetCssClass .= $this->getData('cssClass');
 $widgetBackgroundImage = $block->getData('widgetBackgroundImage');
 
 $title = html_entity_decode($this->getData('title'));
+$titleURL = $this->getData('titleURL');
 $description = html_entity_decode($this->getData('description'));
 $imageUrlDesktop = $block->getMedia($this->getData('imageUrlDesktop'));
 $imageUrlMobile = $block->getMedia($this->getData('imageUrlMobile'));
@@ -61,9 +62,15 @@ $bannerCssClass .= !$block->hasContent() ? 'no-content ' : '';
                 <?php if ($block->hasContent()): ?>
                     <div class="banner-content">
                         <?php if ($title): ?>
-                            <strong class="banner-title">
-                                <span><?= $title ?></span>
-                            </strong>
+                            <?php if ($titleURL): ?>
+                                <a href="<?= $block->_getUrl($titleURL) ?>" class="banner-title-link">
+                            <?php endif ?>
+                                    <strong class="banner-title">
+                                        <span><?= $title ?></span>
+                                    </strong>
+                            <?php if ($titleURL): ?>
+                                </a>
+                            <?php endif ?>
                         <?php endif ?>
 
                         <?php if ($description): ?>

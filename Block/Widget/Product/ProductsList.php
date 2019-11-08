@@ -88,6 +88,15 @@ class ProductsList extends \Magento\CatalogWidget\Block\Product\ProductsList
     }
 
     /**
+     * @param string $url
+     * @return string
+     */
+    public function _getUrl($url)
+    {
+        return $this->widget->_getUrl($url);
+    }
+
+    /**
      * Return widget param as css style declaration
      *
      * @param string $widgetParamName

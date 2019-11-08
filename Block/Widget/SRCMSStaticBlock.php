@@ -35,6 +35,18 @@ class SRCMSStaticBlock extends Block
     }
 
     /**
+     * Object data getter (for data that may be encoded)
+     *
+     * @param string $key
+     * @param string|int $index
+     * @return string|array
+     */
+    public function getData($key = '', $index = null)
+    {
+        return $this->widget->getData($key, $index, $this);
+    }
+
+    /**
      * return image url
      *
      * format base url + pub/media + path to the image
@@ -46,6 +58,15 @@ class SRCMSStaticBlock extends Block
     public function getMedia($image)
     {
         return $this->widget->getMedia($image);
+    }
+
+    /**
+     * @param string $url
+     * @return string
+     */
+    public function _getUrl($url)
+    {
+        return $this->widget->_getUrl($url);
     }
 
     /**

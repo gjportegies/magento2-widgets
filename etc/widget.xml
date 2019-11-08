@@ -146,8 +146,13 @@
                 <label>Widget Padding Bottom (Mobile)</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
+
             <parameter name="widgetTitle" xsi:type="text">
                 <label>Widget Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="widgetTitleURL" xsi:type="text">
+                <label>Widget Title URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
@@ -488,6 +493,10 @@
 
             <parameter name="title" xsi:type="text">
                 <label>Banner Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="titleURL" xsi:type="text">
+                <label>Banner Title URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
             <parameter name="description" xsi:type="block">
@@ -843,8 +852,13 @@
                 <label>Widget Padding Bottom (Mobile)</label>
                 <description><![CDATA[<hidden data-section-scope="design"/>]]></description>
             </parameter>
+
             <parameter name="title" xsi:type="text" sort_order="1">
                 <label>Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="titleURL" xsi:type="text">
+                <label>Title URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
@@ -946,6 +960,10 @@
 
             <parameter name="widgetTitle" xsi:type="text">
                 <label>Widget Title</label>
+                <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
+            </parameter>
+            <parameter name="widgetTitleURL" xsi:type="text">
+                <label>Widget Title URL</label>
                 <description><![CDATA[<hidden data-section-scope="content"/>]]></description>
             </parameter>
 
